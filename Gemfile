@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass', '~>3.3.4'
 # user Authentication
 gem 'devise'
+# use facebook login
+gem 'omniauth-facebook'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
