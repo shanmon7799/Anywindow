@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   before_create :generate_authentication_token
 
+  def is_admin?
+    self.role == "Admin"
+  end
+
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
     user = User.find_by_fb_uid( auth.uid )

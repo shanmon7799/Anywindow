@@ -1,1 +1,5 @@
 <h1>Welcome AnyWindow</h1>
+
+	<% if user_signed_in? && current_user.is_admin?%>
+		<%= link_to "後台登入", admin_windows_path, class: "btn btn-warning" %>
+	<% end %>
