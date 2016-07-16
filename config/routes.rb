@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   end
 
+  namespace :admin do
+    resources :windows
+  end
+
   # root_path
   root "windows#index"
 end
