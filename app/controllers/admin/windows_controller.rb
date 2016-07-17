@@ -3,7 +3,9 @@ class Admin::WindowsController < ApplicationController
 	before_action :authenticate
 
 	def index
-
+		@windows = Window.all
+		@cities = City.all
+		@countries = Country.all
 	end
 
 

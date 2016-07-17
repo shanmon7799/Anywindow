@@ -5,4 +5,10 @@ class WindowsController < ApplicationController
   def index
 
   end
+
+  def show
+    @window = Window.find(params[:id])
+    @window.pages_count +=1
+    @window.save
+	end
 end
