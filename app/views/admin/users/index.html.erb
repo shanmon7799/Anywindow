@@ -1,0 +1,8 @@
+<h1>所有使用者</h1>
+<thead>
+	<% @users.each do |user|%>
+	<tr>
+		<td><%= link_to user.email, admin_user_path(user)%></td>
+	</tr>
+	<% end %>
+</thead>

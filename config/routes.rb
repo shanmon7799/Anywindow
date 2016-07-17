@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :windows
+    resources :users
   end
 
   # root_path
