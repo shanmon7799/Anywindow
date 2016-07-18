@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Web API
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
-    resources :windows # ApiV1::WindowsController
+    resources :windows, only: [:index, :show, :update]# ApiV1::WindowsController
 
     post "login" => "auth#login"
     post "logout" => "auth#logout"

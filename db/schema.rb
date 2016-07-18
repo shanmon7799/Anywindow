@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160716160351) do
     t.integer  "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "location"
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
