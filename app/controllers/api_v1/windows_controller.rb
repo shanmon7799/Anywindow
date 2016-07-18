@@ -15,7 +15,7 @@ class ApiV1::WindowsController < ApiController
     window = Window.find(params[:id])
     #UseRecord.create!(window: window, user: current_user)
 
-    render json: {message: "OK"} if window
+    render json: {message: "OK"}
   end
 
   def update
