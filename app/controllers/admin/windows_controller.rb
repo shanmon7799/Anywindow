@@ -2,12 +2,13 @@ class Admin::WindowsController < ApplicationController
 
 	before_action :authenticate
 
+  before_action :set_window, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@windows = Window.all
 	end
 
 	def show
-		@window = Window.find(params[:id])
 	end
 
 	def new
@@ -17,42 +18,26 @@ class Admin::WindowsController < ApplicationController
 	end
 
 	def create
-		@window = Window.new(window_params)
-		@city = City.new(city_params)
-		@country = Country.new(country_params)
-		if @country.save
-			@city.country_id = @country.id
-			@city.save
-			@window.city_id = @city.id
-			@window.save
-			redirect_to admin_windows_path, alert: "新增成功"
+    create_new_window
+		if @window.save
+			redirect_to admin_windows_path, notice: "新增成功"
 	  else
 	    render :new
 	  end
 	end
 
 	def edit
-		@window =Window.find(params[:id])
-		@city = @window.city
-		@country = @city.country
 	end
 
 	def update
-		@window = Window.find(params[:id])
-		@city = @window.city
-		@country = @city.country
-			if
-				@window.update(window_params)
-				@city.update(city_params)
-				@country.update(country_params)
-				redirect_to admin_windows_path, alert: "更新成功"
-		  	  else
-		       render :edit
-			end
+		if  @window.update(window_params)
+			redirect_to admin_windows_path, alert: "更新成功"
+		else
+		  render :edit
+		end
 	end
 
 	def destroy
-		@window = Window.find(params[:id])
 		@window.destroy
 		redirect_to admin_windows_path, alert: "刪除成功"
 	end
@@ -65,13 +50,34 @@ class Admin::WindowsController < ApplicationController
      end
   end
 
+  def set_window
+    @window = Window.find(params[:id])
+  end
+
   def window_params
   	params.require(:window).permit(:name)
   end
+
   def city_params
   	params.require(:city).permit(:name)
   end
+
   def country_params
   	params.require(:country).permit(:name)
+  end
+
+  def create_new_window
+    @country = Country.where(country_params).first
+    @city = City.where(city_params).first
+    if @city
+      @window = @city.windows.build(window_params)
+    elsif @country
+      @city = @country.cities.create!(city_params)
+      @window = @city.windows.build(window_params)
+    else
+      @country = Country.create!(country_params)
+      @city = @country.cities.create!(city_params)
+      @window = @city.windows.build(window_params)
+    end
   end
 end

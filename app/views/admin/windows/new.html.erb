@@ -2,21 +2,22 @@
 <hr>
 <%= form_for [:admin, @window] do |w| %>
 	<div class="form-group">
-		<%= w.label :name, "Window" %>
-		<%= w.text_field :name %>
-		<br>
-		<%= fields_for @city do |city|%>
-		<%= city.label :name, "City" %>
-		<%= city.text_field :name %>
-		<br>
-		<%= fields_for @country do |country| %>
-		<%= country.label :name, "Country" %>
-		<%= country.text_field :name %>
-	</div>
+    <%= w.label :name, "Window" %>
+    <%= w.text_field :name %>
+ 	  <br>
+    <%= fields_for @city do |city|%>
+    <%= city.label :name, "City" %>
+    <%= city.text_field :name %>
+    <% end %>
+  	<br>
+    <%= fields_for @country do |country| %>
+    <%= country.label :name, "Country" %>
+    <%= country.text_field :name %>
+    <% end %>
+  </div>
 
-	<div class="form-actions">
-	  <%= w.submit "Create", :class => "btn btn-primary" %>
-	</div>
-		<% end %>
-		<% end %>
-		<% end %>
+	 <div class="form-actions">
+    <%= w.submit "Create", :class => "btn btn-primary" %>
+  </div>
+<% end %>
+
