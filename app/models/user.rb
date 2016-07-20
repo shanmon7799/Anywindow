@@ -12,7 +12,7 @@ class User < ApplicationRecord
   end
 
   def full_name
-    self.last_name + self.first_name
+    "#{self.last_name} #{self.first_name}"
   end
 
   def self.from_omniauth(auth)
