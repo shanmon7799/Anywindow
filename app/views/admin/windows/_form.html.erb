@@ -1,0 +1,15 @@
+  <div class="form-group">
+    <%= w.label :name, "Window" %>
+    <%= w.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= w.label :images  %>
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
+    <% if @window.images.exists? %>
+      <%= check_box_tag "remove_images", "1" %> Remove All Images
+      <% @window.images.each do |image| %>
+        <%= image_tag (image.image.url(:medium))%>
+      <% end %>
+    <% end %>
+  </div>

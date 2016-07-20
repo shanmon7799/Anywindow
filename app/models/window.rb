@@ -3,4 +3,6 @@ class Window < ApplicationRecord
 
   belongs_to :city
 
+  has_many :images, dependent: :destroy
+
 end

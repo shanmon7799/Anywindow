@@ -1,12 +1,12 @@
 <h1>編輯地方</h1>
 <hr>
-<%= form_for [:admin, @window] do |w| %>
-	<div class="form-group">
-    <%= w.label :name, "Window" %>
-    <%= w.text_field :name %>
-  </div>
+<%= form_for [:admin, @window],html: { multipart: true } do |w| %>
 
-	 <div class="form-actions">
+  <%= render :partial => 'form', :locals => { :w => w } %>
+
+
+	 <div class="form-actions btn-group">
     <%= w.submit "Update", :class => "btn btn-primary" %>
+    <%= link_to "Cancel", admin_windows_path, :class => "btn btn-danger" %>
   </div>
 <% end %>

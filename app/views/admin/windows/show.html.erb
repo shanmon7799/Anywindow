@@ -1,4 +1,12 @@
 <h1>Window Name: <%= @window.name %></h1>
 
-<hr>
-<%= link_to "Back", admin_windows_path, class:"btn btn-info"%>
+<div>
+<h2>Images</h2>
+<% @window.images.each do |image| %>
+  <%= image_tag (image.image.url(:medium))%>
+<% end %>
+</div>
+<div class="btn-group">
+  <%= link_to "Back", admin_windows_path, class:"btn btn-info"%>
+  <%= link_to "Edit", edit_admin_window_path(@window), class:"btn btn-warning" %>
+</div>

@@ -1,23 +1,25 @@
 <h1>新增地方</h1>
 <hr>
-<%= form_for [:admin, @window] do |w| %>
-	<div class="form-group">
-    <%= w.label :name, "Window" %>
-    <%= w.text_field :name %>
- 	  <br>
+<%= form_for [:admin, @window],html: { multipart: true } do |w| %>
+
+  <%= render :partial => 'form', :locals => { :w => w } %>
+
+  <div class="form-group">
     <%= fields_for @city do |city|%>
     <%= city.label :name, "City" %>
     <%= city.text_field :name %>
     <% end %>
-  	<br>
+  </div>
+  <div class="form-group">
     <%= fields_for @country do |country| %>
     <%= country.label :name, "Country" %>
     <%= country.text_field :name %>
     <% end %>
   </div>
 
-	 <div class="form-actions">
+	<div class="form-actions btn-group">
     <%= w.submit "Create", :class => "btn btn-primary" %>
+    <%= link_to "Cancel", admin_windows_path, :class => "btn btn-danger" %>
   </div>
 <% end %>
 

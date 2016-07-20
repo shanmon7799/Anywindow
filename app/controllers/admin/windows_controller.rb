@@ -20,6 +20,11 @@ class Admin::WindowsController < ApplicationController
 	def create
     create_new_window
 		if @window.save
+
+      if params[:images]
+        params[:images].each { |image| @window.images.create(image: image) }
+      end
+
 			redirect_to admin_windows_path, notice: "新增成功"
 	  else
 	    render :new
@@ -31,6 +36,17 @@ class Admin::WindowsController < ApplicationController
 
 	def update
 		if  @window.update(window_params)
+
+      @window.images.destroy_all  if params[:remove_images]
+
+      if params[:images]
+        params[:images].each do |image|
+          unless @window.images.exists?(image)
+            @window.images.create(image: image)
+          end
+        end
+      end
+
 			redirect_to admin_windows_path, alert: "更新成功"
 		else
 		  render :edit
@@ -55,7 +71,7 @@ class Admin::WindowsController < ApplicationController
   end
 
   def window_params
-  	params.require(:window).permit(:name)
+  	params.require(:window).permit(:name, :images)
   end
 
   def city_params
