@@ -2,8 +2,13 @@
 
 	<% if user_signed_in? && current_user.is_admin?%>
 		<%= link_to "後台登入", admin_windows_path, class: "btn btn-warning" %>
-
-    <% @windows.each do |w| %>
-      <%= link_to w.name, window_path(w) %>
-    <% end %>
 	<% end %>
+
+	<hr>
+	<thead>
+		<tr>
+	    <% @windows.each do |w| %>
+	      <th><%= link_to w.name, window_path(w) %></th>
+	  </tr>
+    	<% end %>
+  </thead>

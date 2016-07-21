@@ -1,0 +1,37 @@
+<h1>Window Name: <%= @window.name %></h1>
+
+<div>
+	<h2>Images</h2>
+		<% @window.images.each do |image| %>
+		  <%= image_tag (image.image.url(:medium))%>
+		<% end %>
+</div>
+
+<div>
+	<h2>Audios</h2>
+		<% @window.audios.each do |audio| %>
+			<p> 檔案名稱：<%= audio.audio_file_name %></p>
+			<audio controls>
+		  	<source src="<%=audio.audio.url%>" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+		<% end %>
+</div>
+
+<div>
+	<h2>Videos</h2>
+		<% @window.videos.each do |video| %>
+			<p> 檔案名稱：<%= video.video_file_name %></p>
+			<iframe title="YouTube video player" width="480" height="390" src="http://www.youtube.com/v/<%= video.video_file_name%>&autoplay=1&controls=0&showinfo=0&modestbranding=1&disablekb=1" frameborder="0" allowfullscreen></iframe>
+		<% end %>
+</div>
+
+<div>
+	<h2>Quote</h2>
+		<%= @quote.content%>
+</div>
+
+<hr>
+<div class="btn-group">
+  <%= link_to "Back", windows_path, class:"btn btn-info"%>
+</div>
