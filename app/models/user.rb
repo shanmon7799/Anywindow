@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   before_create :generate_authentication_token
 
+  has_many :user_windowships, dependent: :destroy
+  has_many :windows, through: :user_windowship
+
   def is_admin?
     self.role == "Admin"
   end
