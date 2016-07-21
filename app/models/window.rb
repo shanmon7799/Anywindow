@@ -7,4 +7,5 @@ class Window < ApplicationRecord
 
   has_many :audios, dependent: :destroy
 
+  has_many :videos, dependent: :destroy
 end

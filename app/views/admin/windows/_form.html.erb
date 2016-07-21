@@ -18,9 +18,14 @@
     <%= w.label :audios, "Upload audios"  %>
     <%= file_field_tag "audios[]", type: :file, multiple: true %>
     <% if @window.audios.exists? %>
-      <%= check_box_tag "remove_audios", "1" %> Remove All Images
+      <%= check_box_tag "remove_audios", "1" %> Remove All Videos
       <% @window.audios.each do |audio| %>
         <%= audio_tag (audio.audio.url)%>
       <% end %>
     <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= w.label :videos, "Upload video url"  %>
+    <%= text_field_tag "videos[]" %>
   </div>

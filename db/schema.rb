@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720073013) do
+ActiveRecord::Schema.define(version: 20160721022150) do
 
   create_table "audios", force: :cascade do |t|
     t.string   "audio_file_name"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20160720073013) do
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+    t.integer  "window_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["window_id"], name: "index_videos_on_window_id"
   end
 
   create_table "windows", force: :cascade do |t|

@@ -20,6 +20,9 @@ class Admin::WindowsController < ApplicationController
 	def create
     create_new_window
 		if @window.save
+      if params[:videos]
+        params[:videos].each { |video| @window.videos.create(video_file_name: video) }
+      end
 
       if params[:images]
         params[:images].each { |image| @window.images.create(image: image) }
@@ -43,6 +46,7 @@ class Admin::WindowsController < ApplicationController
 
       @window.images.destroy_all  if params[:remove_images]
       @window.audios.destroy_all  if params[:remove_audios]
+      @window.videos.destroy_all  if params[:videos]
 
       if params[:images]
         params[:images].each do |image|
@@ -56,6 +60,14 @@ class Admin::WindowsController < ApplicationController
         params[:audios].each do |audios|
           unless @window.audios.exists?(audios)
             @window.audios.create(audio: audios)
+          end
+        end
+      end
+
+      if params[:videos]
+        params[:videos].each do |video|
+          unless @window.videos.exists?(video)
+            @window.videos.create(video_file_name: video)
           end
         end
       end
@@ -84,7 +96,7 @@ class Admin::WindowsController < ApplicationController
   end
 
   def window_params
-  	params.require(:window).permit(:name, :images, :audios)
+  	params.require(:window).permit(:name,:video_file_name)
   end
 
   def city_params
