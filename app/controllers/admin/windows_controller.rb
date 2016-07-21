@@ -96,7 +96,7 @@ class Admin::WindowsController < ApplicationController
   end
 
   def window_params
-  	params.require(:window).permit(:name,:video_file_name)
+  	params.require(:window).permit(:name)
   end
 
   def city_params
