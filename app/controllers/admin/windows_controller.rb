@@ -25,6 +25,10 @@ class Admin::WindowsController < ApplicationController
         params[:images].each { |image| @window.images.create(image: image) }
       end
 
+      if params[:audios]
+        params[:audios].each { |audio| @window.audios.create(audio: audio) }
+      end
+
 			redirect_to admin_windows_path, notice: "新增成功"
 	  else
 	    render :new
@@ -38,11 +42,20 @@ class Admin::WindowsController < ApplicationController
 		if  @window.update(window_params)
 
       @window.images.destroy_all  if params[:remove_images]
+      @window.audios.destroy_all  if params[:remove_audios]
 
       if params[:images]
         params[:images].each do |image|
           unless @window.images.exists?(image)
             @window.images.create(image: image)
+          end
+        end
+      end
+
+      if params[:audios]
+        params[:audios].each do |audios|
+          unless @window.audios.exists?(audios)
+            @window.audios.create(audio: audios)
           end
         end
       end
@@ -71,7 +84,7 @@ class Admin::WindowsController < ApplicationController
   end
 
   def window_params
-  	params.require(:window).permit(:name, :images)
+  	params.require(:window).permit(:name, :images, :audios)
   end
 
   def city_params

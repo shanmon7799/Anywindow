@@ -6,6 +6,19 @@
   <%= image_tag (image.image.url(:medium))%>
 <% end %>
 </div>
+
+<div>
+<h2>Audios</h2>
+<% @window.audios.each do |audio| %>
+	<p> 檔案名稱：<%= audio.audio_file_name %></p>
+	<audio controls>
+  	<source src="<%=audio.audio.url%>" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+<% end %>
+</div>
+
+<hr>
 <div class="btn-group">
   <%= link_to "Back", admin_windows_path, class:"btn btn-info"%>
   <%= link_to "Edit", edit_admin_window_path(@window), class:"btn btn-warning" %>

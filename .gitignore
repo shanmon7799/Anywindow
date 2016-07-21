@@ -17,7 +17,7 @@
 !/log/.keep
 !/tmp/.keep
 /config/facebook.yml
-/public/system/images/*
+/public/system/*
 
 # Ignore Byebug command history file.
 .byebug_history
