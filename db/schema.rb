@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721115759) do
+ActiveRecord::Schema.define(version: 20160722040322) do
 
   create_table "audios", force: :cascade do |t|
     t.string   "audio_file_name"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20160721115759) do
     t.datetime "updated_at", null: false
     t.string   "location"
     t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "window_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["window_id"], name: "index_comments_on_window_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -57,7 +67,6 @@ ActiveRecord::Schema.define(version: 20160721115759) do
   end
 
   create_table "user_windowships", force: :cascade do |t|
-    t.boolean  "is_broken"
     t.integer  "user_id"
     t.integer  "window_id"
     t.datetime "created_at", null: false

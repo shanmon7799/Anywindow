@@ -32,6 +32,39 @@
 </div>
 
 <hr>
+<div>
+	<h2>Comments</h2>
+	<%#= link_to "New comment", new_comment_path, class:"btn btn-primary" %>
+	<%= form_for [@window,@comment] do |c| %>
+	<div class="form-group">
+		<%= c.label :content, "評論" %>
+		<%= c.text_field :content %>
+		<%=  c.submit "送出", class: "btn btn-danger" %>
+	</div>
+  <% end %>
+
+	<table class="table table-hover" >
+		<thead>
+			<tr>
+				<td>使用者</td>
+				<td>內容</td>
+				<td>發布時間</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @comments.each do |comment|%>
+				<tr>
+					<th><%= current_user.full_name %></th>
+					<th><%= comment.content %></th>
+					<th><%= comment.created_at.to_s(:short) %></th>
+					<th><%= link_to "Delete", window_comment_path(@window,comment), :method => :delete ,:data =>{ :confirm => "Are you sure?"}, class:"btn btn-danger" %></th>
+				</tr>
+			<% end %>
+		</tbody>
+		</table>
+</div>
+
+<hr>
 <div class="btn-group">
   <%= link_to "Back", windows_path, class:"btn btn-info"%>
 </div>
