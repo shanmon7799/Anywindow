@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
   before_create :generate_authentication_token
 
   has_many :user_windowships, dependent: :destroy
@@ -14,10 +17,6 @@ class User < ApplicationRecord
     self.role == "Admin"
   end
 
-  def full_name
-    "#{self.last_name} #{self.first_name}"
-  end
-
   def self.from_omniauth(auth)
     # Case 1: Find existing user by facebook uid
     user = User.find_by_fb_uid( auth.uid )
@@ -25,7 +24,7 @@ class User < ApplicationRecord
       user.fb_token = auth.credentials.token
       #user.fb_raw_data = auth
       user.save!
-     return user
+      return user
     end
 
     # Case 2: Find existing user by email
@@ -34,15 +33,20 @@ class User < ApplicationRecord
       existing_user.fb_uid = auth.uid
       existing_user.fb_token = auth.credentials.token
       #existing_user.fb_raw_data = auth
+      existing_user.username = auth.info.name
+      existing_user.avatar_file_name = auth.info.image
       existing_user.save!
       return existing_user
     end
 
     # Case 3: Create new password
+    byebug
     user = User.new
     user.fb_uid = auth.uid
     user.fb_token = auth.credentials.token
     user.email = auth.info.email
+    user.username = auth.info.name
+    user.avatar_file_name = auth.info.image
     user.password = Devise.friendly_token[0,20]
     #user.fb_raw_data = auth
     user.save!
