@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724024632) do
+ActiveRecord::Schema.define(version: 20160724035521) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "audio_file_name"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160724024632) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "location"
+    t.string   "latitude"
+    t.string   "longitude"
     t.index ["country_id"], name: "index_cities_on_country_id", using: :btree
   end
 
@@ -115,11 +117,12 @@ ActiveRecord::Schema.define(version: 20160724024632) do
 
   create_table "windows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "location"
     t.integer  "page_views", default: 0, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "city_id"
+    t.string   "latitude"
+    t.string   "longitude"
   end
 
 end
