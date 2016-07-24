@@ -28,7 +28,7 @@
 
 <div>
 	<h2>Quote</h2>
-		<%= @quote.content%>
+		<%= @quote.try(:content)%>
 </div>
 
 <hr>
@@ -54,7 +54,7 @@
 		<tbody>
 			<% @comments.each do |comment|%>
 				<tr>
-					<th><%= current_user.full_name %></th>
+					<th><%= current_user.username %></th>
 					<th><%= comment.content %></th>
 					<th><%= comment.created_at.to_s(:short) %></th>
 					<th><%= link_to "Delete", window_comment_path(@window,comment), :method => :delete ,:data =>{ :confirm => "Are you sure?"}, class:"btn btn-danger" %></th>

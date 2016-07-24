@@ -120,5 +120,11 @@ class Admin::WindowsController < ApplicationController
       @city = @country.cities.create!(city_params)
       @window = @city.windows.build(window_params)
     end
+    #儲存city和window座標
+    @city.latitude = params[:city][:location].split(" ").first
+    @city.longitude = params[:city][:location].split(" ").last
+
+    @window.latitude = params[:window][:location].split(" ").first
+    @window.longitude = params[:window][:location].split(" ").last
   end
 end

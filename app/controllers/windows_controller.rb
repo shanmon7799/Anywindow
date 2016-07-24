@@ -9,7 +9,7 @@ class WindowsController < ApplicationController
   def show
     @window = Window.find(params[:id])
     @window.increment!(:page_views, 1)
-    @quote = Quote.order("RANDOM()").limit(1).first
+    @quote = Quote.order("RAND()").first
     @comment = Comment.new
     @comments = @window.comments
 	end

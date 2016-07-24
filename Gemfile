@@ -23,6 +23,11 @@ gem 'bootstrap-sass', '~>3.3.4'
 gem 'devise'
 # use facebook login
 gem 'omniauth-facebook'
+# MySQL
+gem 'mysql2'
+# Auto deploy
+gem 'capistrano-rails', :group => :development
+gem 'capistrano-passenger', :group => :development
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

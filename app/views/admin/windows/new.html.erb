@@ -4,12 +4,15 @@
 
   <%= render :partial => 'form', :locals => { :w => w } %>
 
-  <div class="form-group">
-    <%= fields_for @city do |city|%>
-    <%= city.label :name, "City" %>
-    <%= city.text_field :name %>
-    <% end %>
-  </div>
+  <%= fields_for @city do |city|%>
+    <div class="form-group">
+      <%= city.label :name, "City" %>
+      <%= city.text_field :name %>
+
+      <%= city.label :location, "location(十進制)" %>
+      <%= city.text_field :location %>
+    </div>
+  <% end %>
   <div class="form-group">
     <%= fields_for @country do |country| %>
     <%= country.label :name, "Country" %>
