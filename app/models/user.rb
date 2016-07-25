@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+
+  include Gravtastic
+  gravtastic
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,6 +19,10 @@ class User < ApplicationRecord
 
   def is_admin?
     self.role == "Admin"
+  end
+
+  def show_avatar
+    self.avatar_file_name || self.gravatar_url
   end
 
   def self.from_omniauth(auth)

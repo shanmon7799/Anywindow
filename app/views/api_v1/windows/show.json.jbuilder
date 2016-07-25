@@ -5,6 +5,6 @@ json.data do
       json.conent comment.content
       json.time comment.updated_at
       json.username comment.user.username
-      json.avatar_url asset_url("comment.user.avatar.url")
+      json.avatar_url asset_url("comment.user.show_avatar")
   end
 end
