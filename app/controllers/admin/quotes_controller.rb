@@ -38,7 +38,7 @@ class Admin::QuotesController < ApplicationController
 	protected
 
 	def quote_params
-    params.require(:quote).permit(:content)
+    params.require(:quote).permit(:content, :author)
   end
 
 	def set_quote
