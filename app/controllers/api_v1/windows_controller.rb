@@ -1,7 +1,7 @@
 # app/controllers/api_v1/windows_controller.rb
 class ApiV1::WindowsController < ApiController
 
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
 
   # GET /api/v1/windows
   def index

@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     resources :windows, only: [:index, :show, :update] do
       resources :comments, only: [:index, :create, :update, :destroy]
     end
+
     post "login" => "auth#login"
     post "logout" => "auth#logout"
-
   end
 
   namespace :admin do

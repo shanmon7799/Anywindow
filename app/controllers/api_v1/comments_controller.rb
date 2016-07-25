@@ -6,7 +6,7 @@ class ApiV1::CommentsController < ApiController
 
   # GET /api/v1/windows/:window_id/comments
   def index
-
+    @comments = @window.comments
   end
 
   # POST /api/v1/windows/:window_id/comments

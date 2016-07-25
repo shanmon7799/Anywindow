@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :user_windowships, dependent: :destroy
   has_many :windows, through: :user_windowship
 
+  has_many :comments, dependent: :destroy
+
   def is_admin?
     self.role == "Admin"
   end
@@ -48,7 +50,6 @@ class User < ApplicationRecord
     end
 
     # Case 3: Create new password
-    byebug
     user = User.new
     user.fb_uid = auth.uid
     user.fb_token = auth.credentials.token
