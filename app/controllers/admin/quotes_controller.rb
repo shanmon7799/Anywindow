@@ -1,9 +1,11 @@
+require 'roo'
+
 class Admin::QuotesController < ApplicationController
 
 	before_action :set_quote, only: [:edit, :update, :destroy]
 
 	def index
-		@quotes = Quote.all
+		@quotes = Quote.order(id: :DESC)
 	end
 
 	def new
@@ -33,6 +35,11 @@ class Admin::QuotesController < ApplicationController
   def destroy
   	@quote.destroy
   	redirect_to admin_quotes_path, alert: "刪除成功"
+  end
+
+  def import
+    Quote.import(params[:file])
+    redirect_to admin_quotes_path
   end
 
 	protected

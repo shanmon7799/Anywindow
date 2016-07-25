@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :windows
     resources :users
-    resources :quotes
+    resources :quotes do
+      collection { post :import }
+    end
   end
 
   # root_path

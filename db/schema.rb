@@ -124,7 +124,6 @@ ActiveRecord::Schema.define(version: 20160724123518) do
     t.integer  "city_id"
     t.string   "latitude"
     t.string   "longitude"
-    t.string   "location"
     t.string   "locations"
   end
 
