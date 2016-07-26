@@ -1,5 +1,17 @@
 <h1>Welcome AnyWindow</h1>
-
+  <%# user login  %>
+  <% if user_signed_in? %>
+    <div class="btn-group pull-right">
+    <%= link_to "登出", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    <%= link_to "修改密碼", edit_registration_path(:user), class: "btn btn-info" %>
+    </div>
+  <% else %>
+    <div class="btn-group">
+    <%= link_to "註冊", new_registration_path(:user), class: "btn btn-danger" %>
+    <%= link_to "登入", new_session_path(:user), class: "btn btn-warning" %>
+    <%= link_to "登入 Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-primary" %>
+    </div>
+  <% end %>
 	<% if user_signed_in? && current_user.is_admin?%>
 		<%= link_to "後台登入", admin_windows_path, class: "btn btn-warning" %>
 	<% end %>
