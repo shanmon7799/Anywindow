@@ -8,6 +8,7 @@
     <div class="form-group">
       <%= city.label :name, "City" %>
       <%= city.text_field :name %>
+      <%#= city.select :name, City.all.map{ |c| [c.name, c.name] }, :class => "form-control" %>
 
       <%= city.label :location, "location(十進制)" %>
       <%= city.text_field :location %>
@@ -17,6 +18,7 @@
     <%= fields_for @country do |country| %>
     <%= country.label :name, "Country" %>
     <%= country.text_field :name %>
+    <%#= country.select :name, Country.all.map{ |c| [c.name, c.name] }, :class => "form-control" %>
     <% end %>
   </div>
 
@@ -26,3 +28,7 @@
   </div>
 <% end %>
 
+<script>
+  $('#country_name').select2();
+  $('#city_name').select2();
+</script>
