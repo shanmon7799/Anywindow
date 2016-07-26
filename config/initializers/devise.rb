@@ -245,7 +245,7 @@ Devise.setup do |config|
   fb_config = Rails.application.config_for(:facebook)
   config.omniauth :facebook, fb_config["app_id"], fb_config["secret"],
   :scope => 'public_profile,email', :info_fields => 'email,name',
-  callback_url: "http://www.ritayutingwang.com/users/auth/facebook/callback"
+  callback_url: "http://ritayutingwang.com/users/auth/facebook/callback"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
