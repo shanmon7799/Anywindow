@@ -14,11 +14,18 @@ Rails.application.routes.draw do
     post "logout" => "auth#logout"
   end
 
+  #後台路由
   namespace :admin do
-    resources :windows
+    resources :windows do
+      collection do
+        post :import
+      end
+    end
     resources :users
     resources :quotes do
-      collection { post :import }
+      collection do
+       post :import
+     end
     end
   end
 

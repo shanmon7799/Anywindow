@@ -28,5 +28,13 @@
   </tbody>
 </table>
 
+<!-->#Import CSV</!-->
+<h2>Import Countries</h2>
+<%= form_tag import_admin_windows_path, multipart: true do %>
+  <%= file_field_tag :file %>
+<br>
+  <%= submit_tag "Import" %>
+<% end %>
+
 <hr>
 <%= link_to "Back to windows", windows_path, class:"btn btn-info"%>
