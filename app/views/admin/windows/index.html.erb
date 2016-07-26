@@ -19,7 +19,7 @@
 	  	<tr>
 	  		<th><%= link_to window.name, admin_window_path(window) %></th>
 	  		<th><%= window.city.try(:name) %></th>
-	  		<th><%= window.city.try(:country).try(:name)%></th>
+	  		<th><%= window.city.try(:country).try(:name) %></th>
 	  		<th><%= window.page_views %></th>
 	  		<th><%= link_to "Edit", edit_admin_window_path(window), class:"btn btn-warning pull-right" %></th>
 	  		<th><%= link_to "Delete", admin_window_path(window), :method => :delete ,:data =>{ :confirm => "Are you sure?"}, class:"btn btn-danger" %></th>
@@ -27,6 +27,14 @@
 	  <% end %>
   </tbody>
 </table>
+
+<!--#Import CSV></!-->
+<h2>Import Countries</h2>
+<%= form_tag import_admin_windows_path, multipart: true do %>
+  <%= file_field_tag :file %>
+<br>
+  <%= submit_tag "Import" %>
+<% end %>
 
 <hr>
 <%= link_to "Back to windows", windows_path, class:"btn btn-info"%>

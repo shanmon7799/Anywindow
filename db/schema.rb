@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160724123518) do
+ActiveRecord::Schema.define(version: 20160725172130) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "audio_file_name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160724123518) do
     t.string   "location"
     t.string   "latitude"
     t.string   "longitude"
+    t.string   "en_name"
     t.index ["country_id"], name: "index_cities_on_country_id", using: :btree
   end
 
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160724123518) do
     t.string   "short_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "en_name"
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,6 +69,12 @@ ActiveRecord::Schema.define(version: 20160724123518) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "author"
+  end
+
+  create_table "user_records", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean  "is_broken",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "user_windowships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

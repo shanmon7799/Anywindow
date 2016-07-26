@@ -83,6 +83,12 @@ class Admin::WindowsController < ApplicationController
 		redirect_to admin_windows_path, alert: "刪除成功"
 	end
 
+  #Import CSV
+  def import
+    Country.import(params[:file])
+    redirect_to admin_windows_path
+  end
+
   protected
 
   def authenticate
@@ -104,7 +110,7 @@ class Admin::WindowsController < ApplicationController
   end
 
   def country_params
-  	params.require(:country).permit(:name)
+  	params.require(:country).permit(:name, :en_name, :short_name)
   end
 
   def create_new_window

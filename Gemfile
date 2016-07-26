@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+# Seclect bootstrap
+gem "select2-rails"
 # Importing CSV and Excel
 gem 'roo'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
