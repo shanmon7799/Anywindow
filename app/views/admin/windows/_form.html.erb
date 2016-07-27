@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <%= w.label :images, "Upload images"  %>
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
+    <%= file_field_tag "images[]", type: :file%>
     <% if @window.images.exists? %>
       <%= check_box_tag "remove_images", "1" %> Remove All Images
       <% @window.images.each do |image| %>
@@ -19,9 +19,9 @@
 
   <div class="form-group">
     <%= w.label :audios, "Upload audios"  %>
-    <%= file_field_tag "audios[]", type: :file, multiple: true %>
+    <%= file_field_tag "audios[]", type: :file%>
     <% if @window.audios.exists? %>
-      <%= check_box_tag "remove_audios", "1" %> Remove All Videos
+      <%= check_box_tag "remove_audios", "1" %> Remove All Audios
       <% @window.audios.each do |audio| %>
         <%= audio_tag (audio.audio.url)%>
       <% end %>
@@ -29,6 +29,12 @@
   </div>
 
   <div class="form-group">
-    <%= w.label :videos, "Upload video url"  %>
-    <%= text_field_tag "videos[]" %>
+    <%= w.label :videos, "Upload videos"  %>
+    <%= file_field_tag "videos[]", type: :file%>
+    <% if @window.videos.exists? %>
+      <%= check_box_tag "remove_videos", "1" %> Remove All Videos
+      <% @window.videos.each do |video| %>
+        <%= video_tag (video.video.url)%>
+      <% end %>
+    <% end %>
   </div>
