@@ -15,12 +15,16 @@
 	  <% end %>
   </tbody>
 </table>
+
+<!--分頁套件></!-->
+<%= paginate @quotes, :theme => 'twitter-bootstrap-3' %>
+
 <h2>Import Quotes</h2>
 <%= form_tag import_admin_quotes_path, multipart: true do %>
   <%= file_field_tag :file %>
+  <br>
   <%= submit_tag "Import" %>
 <% end %>
-
 <hr>
 <div>
 <%= link_to "Back to windows", admin_windows_path, class:"btn btn-info"%>

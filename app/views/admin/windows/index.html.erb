@@ -5,6 +5,17 @@
 
 <h1>All Windows</h1>
 <%= link_to "New Windows", new_admin_window_path, class:"btn btn-primary"%>
+<br>
+<br>
+
+<!--搜尋列></!-->
+<div class="form-group">
+<%= form_tag admin_windows_path, :method => :get do %>
+  <%= text_field_tag "keyword" %>
+  <%= submit_tag "Search" %>
+<% end %>
+</div>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -27,6 +38,9 @@
 	  <% end %>
   </tbody>
 </table>
+
+<!--分頁套件></!-->
+<%= paginate @windows, :theme => 'twitter-bootstrap-3' %>
 
 <!--#Import CSV></!-->
 <h2>Import Countries</h2>

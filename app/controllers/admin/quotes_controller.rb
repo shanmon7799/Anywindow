@@ -5,7 +5,7 @@ class Admin::QuotesController < ApplicationController
 	before_action :set_quote, only: [:edit, :update, :destroy]
 
 	def index
-		@quotes = Quote.order(id: :DESC)
+		@quotes = Quote.page(params[:page]).per(10).order(id: :DESC)
 	end
 
 	def new

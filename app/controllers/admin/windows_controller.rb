@@ -5,7 +5,13 @@ class Admin::WindowsController < ApplicationController
   before_action :set_window, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@windows = Window.all
+    if params[:keyword]
+      @windows = Window.where( [ "name like ?", "%#{params[:keyword]}%" ] )
+    else
+      @windows = Window.all
+    end
+
+    @windows = @windows.page(params[:page]).per(10).order(id: :DESC)
 	end
 
 	def show
@@ -102,7 +108,7 @@ class Admin::WindowsController < ApplicationController
   end
 
   def window_params
-  	params.require(:window).permit(:name)
+  	params.require(:window).permit(:name, :keyword)
   end
 
   def city_params
