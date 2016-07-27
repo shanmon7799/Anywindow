@@ -17,7 +17,7 @@ json.countries do
             json.longitude window.longitude
             json.image_url asset_url(window.images.last.image.url)
             json.audio_url asset_url(window.audios.last.audio.url)
-            json.video_url window.videos.first.video_file_name
+            json.video_url asset_url(window.videos.last.video.url)
             json.quote @quote.content
             json.author @quote.author
           end
