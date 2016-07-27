@@ -17,8 +17,8 @@
   <div class="form-group">
     <%= fields_for @country do |country| %>
     <%= country.label :name, "Country" %>
-    <%= country.text_field :name %>
-    <%#= country.select :name, Country.all.map{ |c| [c.name, c.name] }, :class => "form-control" %>
+    <%#= country.text_field :name %>
+    <%= country.select :name, Country.all.map{ |c| [c.name, c.name] },include_blank: true, :class => "form-control" %>
     <% end %>
   </div>
 
