@@ -21,8 +21,10 @@
 <div>
 <h2>Videos</h2>
 <% @window.videos.each do |video| %>
-	<p> 檔案名稱：<%= video.video_file_name %></p>
-	<iframe title="YouTube video player" width="480" height="390" src="http://www.youtube.com/v/<%= video.video_file_name%>&autoplay=1&controls=0&showinfo=0&modestbranding=1&disablekb=1" frameborder="0" allowfullscreen></iframe>
+  <p> 檔案名稱：<%= video.video_file_name %></p>
+  <video width="400" height="400" controls>
+  <source src="<%=video.video.url%>" type="video/mp4">
+  </video>
 <% end %>
 </div>
 

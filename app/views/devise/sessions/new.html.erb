@@ -1,25 +1,30 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+<div class="container-full">
+  <div class="sign_up_words pull-left">
+    <div class="slogan">歡迎回來</div>
+    <div class="words">任意窗帶你到世界工作</div>
   </div>
+  <div class="log_in_form pull-right">
+    <h2>登入任意窗</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field form-group">
+        <%= f.email_field :email, autofocus: true, placeholder: "電子信箱", class: "form-control" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "off", placeholder: "密碼", class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登入", class: "btn btn-info" %>
+      </div>
+    <% end %>
+      <div class="sign_up_divider_or clear-fix">
+        <div class="sign_up_divider pull-left"></div>
+        <div class="sign_up_divider pull-right"></div>
+      </div>
+      <div class="sign_up_or">或是</div>
+        <%= link_to "Facebook 登入", user_omniauth_authorize_path(:facebook), class: "btn btn-primary" %>
+        <div class="sign_up_login">已經有帳號了？點這裡<%= link_to "註冊", new_registration_path(:user),class: "login_link" %></div>
+      </div>
   </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field form-group">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-primary" %>
-    <%= render "devise/shared/links" %>
-  </div>
-<% end %>
+</div>
