@@ -19,7 +19,9 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 #upload file
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 4.3.3"
+# Amazon web services
+gem 'aws-sdk-v1'
 # bootstrap
 gem 'bootstrap-sass', '~>3.3.4'
 # user Authentication

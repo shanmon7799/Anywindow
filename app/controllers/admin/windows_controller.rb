@@ -27,7 +27,7 @@ class Admin::WindowsController < ApplicationController
     create_new_window
 		if @window.save
       if params[:videos]
-        params[:videos].each { |video| @window.videos.create(video_file_name: video) }
+        params[:videos].each { |video| @window.videos.create(video: video) }
       end
 
       if params[:images]
@@ -52,7 +52,7 @@ class Admin::WindowsController < ApplicationController
 
       @window.images.destroy_all  if params[:remove_images]
       @window.audios.destroy_all  if params[:remove_audios]
-      @window.videos.destroy_all  if params[:videos]
+      @window.videos.destroy_all  if params[:remove_vedios]
 
       if params[:images]
         params[:images].each do |image|
@@ -73,7 +73,7 @@ class Admin::WindowsController < ApplicationController
       if params[:videos]
         params[:videos].each do |video|
           unless @window.videos.exists?(video)
-            @window.videos.create(video_file_name: video)
+            @window.videos.create(video: video)
           end
         end
       end
