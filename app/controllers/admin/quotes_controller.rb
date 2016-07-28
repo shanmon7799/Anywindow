@@ -3,7 +3,7 @@ require 'roo'
 class Admin::QuotesController < ApplicationController
 
 	before_action :set_quote, only: [:edit, :update, :destroy]
-
+  layout "admin"
 	def index
 		@quotes = Quote.page(params[:page]).per(10).order(id: :DESC)
 	end

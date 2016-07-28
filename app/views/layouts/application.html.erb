@@ -9,16 +9,71 @@
   </head>
 
   <body>
-    <%# 顯示flash msg %>
-    <% if flash[:notice].present? && %>
-      <div class="alert alert-success" role="alert" ><%= flash[:notice] %>
+    <%if user_signed_in?%>
+      <!-- navbar -->
+      <nav class="navbar navbar-default">
+        <div class="navbar-brand col-md-4">
+          <img src="http://placehold.it/30x30" alt="" class="random pull-left">
+        </div>
+        <div id="logo" class="col-md-4">
+          <img src="http://placehold.it/30x30" alt="" class="random">
+        </div>
+        <div class="avatar-img col-md-4">
+          <%= image_tag current_user.show_avatar%>
+        </div>
+      </nav>
+
+      <!-- sidebar  -->
+      <div class="sidebar">
+        <div class="sidebar-items">
+          <div class="sidebar-item">
+            <a href="#">
+              <img src="http://placehold.it/24x24" alt="" class="random pull-left">
+              <%= link_to content_tag(:p,"隨機帶我去工作地點")%>
+            </a>
+          </div>
+          <div class="sidebar-item">
+            <a href="#">
+              <img src="http://placehold.it/24x24" alt="" class="map pull-left">
+              <%= link_to content_tag(:p,"地圖找工作地點") %>
+            </a>
+          </div>
+          <div class="sidebar-item">
+            <a href="#">
+              <img src="http://placehold.it/24x24" alt="" class="search pull-left">
+              <%= link_to content_tag(:p,"搜尋工作地點") %>
+            </a>
+          </div>
+          <div class="sidebar_divider"></div>
+          <div class="sidebar-item">
+            <a href="#">
+              <img src="http://placehold.it/24x24" alt="" class="data pull-left">
+              <%= link_to content_tag(:p,"工作數據") %>
+            </a>
+          </div>
+          <div class="sidebar-item">
+            <a href="#">
+              <img src="http://placehold.it/24x24" alt="" class="setup pull-left">
+              <%= link_to content_tag(:p,"設定") %>
+            </a>
+          </div>
+        </div>
+        <div class="sidebar-info">
+          <div class="user-info col-md-6">
+            <div class="sidebar-logout">
+              <%= link_to "登出", destroy_user_session_path, method: :delete %>
+            </div>
+            <div class="sidebar-username">
+              <%= current_user.username %>
+            </div>
+          </div>
+          <div class="avatar-img col-md-6">
+            <%= image_tag current_user.show_avatar%>
+          </div>
+        </div>
       </div>
     <% end %>
-    <% if flash[:alert].present? %>
-      <div class="alert alert-danger" role="alert" ><%= flash[:alert] %>   </div>
-      <% end %>
-
-    <%# 顯示 各個views%>
+    <!-- 顯示 各個views -->
     <%= yield %>
   </body>
 </html>

@@ -1,5 +1,5 @@
 class Admin::WindowsController < ApplicationController
-
+  layout "admin"
 	before_action :authenticate
 
   before_action :set_window, only: [:show, :edit, :update, :destroy]

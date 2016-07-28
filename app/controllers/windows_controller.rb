@@ -1,6 +1,6 @@
 class WindowsController < ApplicationController
 
-  before_action :authenticate_user!, only: [:show, :destroy]
+  before_action :authenticate_user!
 
   def index
     @windows = Window.all
