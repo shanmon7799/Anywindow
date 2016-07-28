@@ -12,11 +12,13 @@
     <%if user_signed_in?%>
       <!-- navbar -->
       <nav class="navbar navbar-default">
-        <div class="navbar-brand col-md-4">
-          <img src="http://placehold.it/30x30" alt="" class="random pull-left">
+        <div class="bars col-md-4">
+          <span class="sidebar_icon pull-left">
+            <%= image_tag asset_path("Menu_White.svg") %>
+          </span>
         </div>
         <div id="logo" class="col-md-4">
-          <img src="http://placehold.it/30x30" alt="" class="random">
+          <%= image_tag asset_path("Combined_Shape.png") %>
         </div>
         <div class="avatar-img col-md-4">
           <%= image_tag current_user.show_avatar%>
@@ -28,37 +30,48 @@
         <div class="sidebar-items">
           <div class="sidebar-item">
             <a href="#">
-              <img src="http://placehold.it/24x24" alt="" class="random pull-left">
+              <span class="sidebar_icon pull-left">
+                <%= image_tag asset_path("Random_White.svg") %>
+              </span>
               <%= link_to content_tag(:p,"隨機帶我去工作地點")%>
             </a>
           </div>
           <div class="sidebar-item">
             <a href="#">
-              <img src="http://placehold.it/24x24" alt="" class="map pull-left">
+              <span class="sidebar_icon pull-left">
+                <%= image_tag asset_path("Map_White.svg") %>
+              </span>
               <%= link_to content_tag(:p,"地圖找工作地點") %>
             </a>
           </div>
           <div class="sidebar-item">
             <a href="#">
-              <img src="http://placehold.it/24x24" alt="" class="search pull-left">
+              <span class="sidebar_icon pull-left">
+                <%= image_tag asset_path("Search_White.svg") %>
+              </span>
               <%= link_to content_tag(:p,"搜尋工作地點") %>
             </a>
           </div>
           <div class="sidebar_divider"></div>
           <div class="sidebar-item">
             <a href="#">
-              <img src="http://placehold.it/24x24" alt="" class="data pull-left">
+              <span class="sidebar_icon pull-left">
+                <%= image_tag asset_path("Data_White.svg") %>
+              </span>
               <%= link_to content_tag(:p,"工作數據") %>
             </a>
           </div>
           <div class="sidebar-item">
             <a href="#">
-              <img src="http://placehold.it/24x24" alt="" class="setup pull-left">
+              <span class="sidebar_icon pull-left">
+                <%= image_tag asset_path("Setting_White.svg") %>
+              </span>
               <%= link_to content_tag(:p,"設定") %>
             </a>
           </div>
         </div>
         <div class="sidebar-info">
+          <div class="sidebar_divider"></div>
           <div class="user-info col-md-6">
             <div class="sidebar-logout">
               <%= link_to "登出", destroy_user_session_path, method: :delete %>

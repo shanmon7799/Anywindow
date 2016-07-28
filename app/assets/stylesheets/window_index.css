@@ -1,0 +1,36 @@
+.index-info {
+  position: absolute;
+  color: #F7EFEF;
+  top: 40%;
+  left: 40%;
+  text-align: center;
+}
+
+.index-words h2 {
+  font-family: SourceHanSansTWHK-Medium;
+  font-size: 36px;
+  letter-spacing: 0.5px;
+}
+
+.index-words p {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+}
+
+.index-random .btn{
+  font-family: SourceHanSansTWHK-Normal;
+  background: #4565C3;
+  width: 302px;
+  height: 48px;
+  font-size: 18px;
+  line-height: 36px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar {
+  opacity: 0.3;
+}

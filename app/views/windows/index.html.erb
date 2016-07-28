@@ -1,3 +1,14 @@
 <% if user_signed_in? && current_user.is_admin?%>
 	<%= link_to "後台登入", admin_windows_path, class: "btn btn-warning pull-right" %>
 <% end %>
+<div class="container-full">
+  <div class="index-info">
+    <div class="index-words">
+      <h2>哈囉，<%= current_user.username%>!</h2>
+      <p>歡迎回來工作</p>
+    </div>
+    <div class="index-random">
+      <%= link_to "帶我去任意工作地點",:root ,class: "btn"  %>
+    </div>
+  </div>
+</div>

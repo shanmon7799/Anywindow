@@ -26,6 +26,8 @@ gem 'aws-sdk-v1'
 gem 'bootstrap-sass', '~>3.3.4'
 # user Authentication
 gem 'devise'
+#awesome-icons
+gem "font-awesome-rails"
 # use facebook login
 gem 'omniauth-facebook'
 # MySQL

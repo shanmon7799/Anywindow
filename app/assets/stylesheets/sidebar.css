@@ -1,27 +1,21 @@
 .sidebar {
   width: 340px;
-  height: 95vh;
+  height: 100%;
   position: absolute;
   background: #2546AA;
-  opacity: 0.5;
-}
-
-.sidebar p {
-  font-family: SourceHanSansTWHK-Normal;
-  font-size: 13px;
-  color: #FFFFFF;
-  letter-spacing: 1px;
-}
-
-.sidebar-item img {
-  padding: 10px;
+  opacity: 1;
 }
 
 .sidebar-item p {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: white;
   padding: 13px;
+  padding-left: 60px;
 }
 
-.sidebar-items .sidebar_divider {
+.sidebar_divider {
   border: 1px solid #F7EFEF;
   width: 292px;
   margin: 15px 10px;
@@ -31,24 +25,26 @@
 .sidebar-info {
   position: absolute;
   width: 320px;
-  bottom: 24px;
+  bottom: 8%;
 }
 
 .sidebar-info>.user-info {
   padding: 10px;
+  padding-top: 25px;
 }
 
-.sidebar-info .sidebar-logout {
+.sidebar-logout {
   font-family: SourceHanSansTWHK-Normal;
-  font-size: 13px;
-  color: #FFFFFF;
+  font-size: 14px;
   letter-spacing: 1px;
+  text-decoration: none;
+  color: white;
 }
 
 .sidebar-info .sidebar-username {
   opacity: 0.5;
   font-family: SourceHanSansTWHK-Normal;
   font-size: 11px;
-  color: #FFFFFF;
   letter-spacing: 0px;
+  color: white;
 }
