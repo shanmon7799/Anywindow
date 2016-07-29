@@ -24,7 +24,9 @@
           <%= image_tag current_user.show_avatar%>
         </div>
       </nav>
-
+      <% if current_user.is_admin?%>
+        <%= link_to "後台登入", admin_windows_path, class: "btn btn-warning pull-right" %>
+      <% end %>
       <!-- sidebar  -->
       <div class="sidebar">
         <div class="sidebar-items">
@@ -33,7 +35,7 @@
               <span class="sidebar_icon pull-left">
                 <%= image_tag asset_path("Random_White.svg") %>
               </span>
-              <%= link_to content_tag(:p,"隨機帶我去工作地點")%>
+              <%= link_to content_tag(:p,"隨機帶我去工作地點"), root_path%>
             </a>
           </div>
           <div class="sidebar-item">
@@ -41,7 +43,7 @@
               <span class="sidebar_icon pull-left">
                 <%= image_tag asset_path("Map_White.svg") %>
               </span>
-              <%= link_to content_tag(:p,"地圖找工作地點") %>
+              <%= link_to content_tag(:p,"地圖找工作地點"), map_windows_path %>
             </a>
           </div>
           <div class="sidebar-item">
@@ -49,7 +51,7 @@
               <span class="sidebar_icon pull-left">
                 <%= image_tag asset_path("Search_White.svg") %>
               </span>
-              <%= link_to content_tag(:p,"搜尋工作地點") %>
+              <%= link_to content_tag(:p,"搜尋工作地點"), search_windows_path %>
             </a>
           </div>
           <div class="sidebar_divider"></div>

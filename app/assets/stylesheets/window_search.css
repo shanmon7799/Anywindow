@@ -1,0 +1,69 @@
+.search-info {
+  width: 100%;
+  height: 200px;
+  background-color: #274AB4;
+}
+
+.search-info h2 {
+  font-family: SourceHanSansTWHK-Medium;
+  font-size: 36px;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-align: center;
+  padding-top: 64px;
+}
+
+.search-bar {
+  text-align: center;
+}
+
+.search-bar input[type=text] {
+    opacity: 0.5;
+    border: 1px solid #FFFFFF;
+    border-radius: 50px;
+    width: 360px;
+    height: 42px;
+    font-family: SourceHanSansTWHK-Normal;
+    font-size: 14px;
+    color: rgba(255,255,255,0.50);
+    letter-spacing: 0px;
+    background-color: #274AB4;
+    background-image: url(asset_path("Search_White.svg"));
+    background-position: 300px;
+    background-repeat: no-repeat;
+    margin-top: 24px;
+}
+
+.container-windows {
+  width: 1050px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.search-window
+{
+  width: 316px;
+  margin: 12px;
+}
+
+.search-window-words {
+  position: absolute;
+  color: #FFFFFF;
+  text-align: center;
+  top: 40%;
+  left: 40%;
+}
+
+.search-window-city {
+  font-family: SourceHanSansTWHK-Medium;
+  font-size: 36px;
+  letter-spacing: 0px;
+}
+
+.search-window-country {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+}

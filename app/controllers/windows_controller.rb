@@ -1,9 +1,19 @@
 class WindowsController < ApplicationController
 
   before_action :authenticate_user!
-
+  # root => random window
   def index
+
+  end
+
+  # search => keyword search window
+  def search
     @windows = Window.all
+  end
+
+  # map => map click window
+  def map
+
   end
 
   def show
