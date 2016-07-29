@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729071730) do
+ActiveRecord::Schema.define(version: 20160729184412) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "audio_file_name"
@@ -132,13 +132,20 @@ ActiveRecord::Schema.define(version: 20160729071730) do
 
   create_table "windows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "page_views", default: 0, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "page_views",                default: 0, null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "city_id"
     t.string   "latitude"
     t.string   "longitude"
     t.string   "locations"
+    t.string   "provider_name"
+    t.string   "provider_service"
+    t.string   "provider_url"
+    t.string   "provider_pic_file_name"
+    t.string   "provider_pic_content_type"
+    t.integer  "provider_pic_file_size"
+    t.datetime "provider_pic_updated_at"
   end
 
 end
