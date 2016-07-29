@@ -4,16 +4,20 @@
 
   <%= render :partial => 'form', :locals => { :w => w } %>
 
-  <%= fields_for @city do |city|%>
-    <div class="form-group">
+  <div class="form-group">
+    <%= fields_for @city do |city| %>
       <%= city.label :name, "City" %>
       <%= city.text_field :name %>
       <%#= city.select :name, City.all.map{ |c| [c.name, c.name] }, :class => "form-control" %>
-
       <%= city.label :location, "location(十進制)" %>
       <%= city.text_field :location %>
-    </div>
-  <% end %>
+
+    <p> "Upload city_images" </p>
+    <%= file_field_tag "city_images[]", type: :file%>
+
+    <% end %>
+  </div>
+
   <div class="form-group">
     <%= fields_for @country do |country| %>
     <%= country.label :name, "Country" %>

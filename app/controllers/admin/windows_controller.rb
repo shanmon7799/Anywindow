@@ -25,7 +25,8 @@ class Admin::WindowsController < ApplicationController
 
 	def create
     create_new_window
-		if @window.save
+
+    if @window.save
       if params[:videos]
         params[:videos].each { |video| @window.videos.create(video: video) }
       end
@@ -45,14 +46,15 @@ class Admin::WindowsController < ApplicationController
 	end
 
 	def edit
-	end
+  end
 
 	def update
-		if  @window.update(window_params)
+    if  @window.update(window_params)
 
       @window.images.destroy_all  if params[:remove_images]
       @window.audios.destroy_all  if params[:remove_audios]
       @window.videos.destroy_all  if params[:remove_vedios]
+      @window.city.image.destroy if params[:remove_city_images]
 
       if params[:images]
         params[:images].each do |image|
@@ -112,7 +114,7 @@ class Admin::WindowsController < ApplicationController
   end
 
   def city_params
-  	params.require(:city).permit(:name)
+  	params.require(:city).permit(:name, :image)
   end
 
   def country_params
@@ -138,5 +140,10 @@ class Admin::WindowsController < ApplicationController
 
     @window.latitude = params[:window][:locations].split(",").first
     @window.longitude = params[:window][:locations].split(",").last
+
+    if params[:city_images]
+      params[:city_images].each { |image| @city.update!(image: image) }
+    end
+
   end
 end
