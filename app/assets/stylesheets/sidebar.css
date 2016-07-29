@@ -6,13 +6,26 @@
   opacity: 1;
 }
 
+.sidebar-items {
+  padding-top: 10px;
+}
+
+.sidebar-item {
+  padding: 0px 20px;
+}
+
 .sidebar-item p {
   font-family: SourceHanSansTWHK-Normal;
-  font-size: 16px;
+  font-size: 13px;
   letter-spacing: 1px;
   color: white;
-  padding: 13px;
+  padding: 10px;
   padding-left: 60px;
+}
+
+#logo>img {
+  width: 32px;
+  height: 100%;
 }
 
 .sidebar_divider {
@@ -20,6 +33,11 @@
   width: 292px;
   margin: 15px 10px;
   opacity: 0.3;
+}
+
+.sidebar-item img {
+  width: 36px;
+  height: 100%;
 }
 
 .sidebar-info {
@@ -30,7 +48,6 @@
 
 .sidebar-info>.user-info {
   padding: 10px;
-  padding-top: 25px;
 }
 
 .sidebar-logout {
@@ -42,7 +59,6 @@
 }
 
 .sidebar-info .sidebar-username {
-  opacity: 0.5;
   font-family: SourceHanSansTWHK-Normal;
   font-size: 11px;
   letter-spacing: 0px;
