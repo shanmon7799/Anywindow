@@ -8,6 +8,11 @@
 </div>
 
 <div>
+<h2>City Images</h2>
+  <%= image_tag (@window.city.image.url(:medium))%>
+</div>
+
+<div>
 <h2>Audios</h2>
 <% @window.audios.each do |audio| %>
 	<p> 檔案名稱：<%= audio.audio_file_name %></p>
