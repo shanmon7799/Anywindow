@@ -1,38 +1,39 @@
-<div class="container-search">
-  <div class="search-info">
-    <div class="search-word">
-      <h2>發掘世界各個角落</h2>
-    </div>
-    <div class="search-bar">
-      <div class="form-group">
-        <%= form_tag search_windows_path, :method => :get do %>
-          <%= text_field_tag "keyword",nil ,placeholder: "    今天想看什麼樣的風景?" %>
-          <%= submit_tag "Search", style: "display: none;" %>
-        <% end %>
-    </div>
-  </div>
-  <div class="container-windows">
-    <% @cities.each do |city| %>
-    <div class="search-window col-md-4">
-      <div class="search-window-img">
-        <%# city.images.each do |image| %>
-          <%#= image_tag (image.image.url(:medium))%>
-        <%# end %>
-        <%= link_to image_tag('http://placehold.it/316x316'), search_result_windows_path(id: city) %>
+<div class="container-windows-full">
+  <div class="container-search">
+    <div class="search-info">
+      <div class="search-word">
+        <h2>發掘世界各個角落</h2>
       </div>
-      <div class="search-window-words">
-        <div class="search-window-city">
-          <%= city.name %>
-        </div>
-        <div class="search-window-country">
-          <%= city.country.name %>
-        </div>
+      <div class="search-bar">
+        <div class="form-group">
+          <%= form_tag search_windows_path, :method => :get do %>
+            <%= text_field_tag "keyword",nil ,placeholder: "今天想看什麼樣的風景?" %>
+            <%= submit_tag "Search", style: "display: none;" %>
+          <% end %>
       </div>
     </div>
-    <% end %>
+    <div class="container-windows">
+      <% @cities.each do |city| %>
+      <div class="search-window col-md-4">
+        <div class="search-window-img">
+          <%# city.images.each do |image| %>
+            <%#= image_tag (image.image.url(:medium))%>
+          <%# end %>
+          <%= link_to image_tag('http://placehold.it/316x316'), city_detail_windows_path(id: city) %>
+        </div>
+        <div class="search-window-words">
+          <div class="search-window-city">
+            <%= city.name %>
+          </div>
+          <div class="search-window-country">
+            <%= city.country.name %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
 <script>
   $('#keyword').select2();
 </script>

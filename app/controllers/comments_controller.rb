@@ -8,9 +8,8 @@ class CommentsController < ApplicationController
 
 	def create
 		@comment = @window.comments.build(comment_params)
-		@comment.user_id = current_user.id
-		@comment.save
-		redirect_to :back
+		@comment.update!(user_id: current_user.id)
+		redirect_to window_detail_windows_path(id: @window)
 	end
 
 	def destroy

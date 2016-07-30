@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
     collection do
       get :search
-      get :search_result
+      get :city_detail
+      get :window_detail
       get :map
     end
   end

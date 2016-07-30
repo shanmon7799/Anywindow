@@ -16,8 +16,14 @@ class WindowsController < ApplicationController
   end
 
   # search_result => search bar or image click
-  def search_result
+  def city_detail
     @city = City.find(params[:id])
+  end
+
+  def window_detail
+    @window = Window.find(params[:id])
+    @comments = @window.comments.includes(:user).order(updated_at: :desc)
+    @comment = Comment.new
   end
 
   # map => map click window

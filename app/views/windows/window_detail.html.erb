@@ -1,0 +1,78 @@
+<div class="container-window-full">
+  <div class="container-window-detail">
+    <div class="window-detail-names">
+      <div class="window-detail-country-city-name">
+        <p> <%=  "#{@window.city.name}, #{@window.city.country.name}"  %> </p>
+      </div>
+      <div class="window-detail-window-name">
+        <h2> <%= @window.name%> </h2>
+      </div>
+    </div>
+    <div class="search-result-intro">
+      <div class="search-result-intro-img col-md-8">
+        <%= image_tag asset_url("http://placehold.it/664x436") %>
+        <div class="search-result-intro-random">
+          <%= image_tag asset_url('Go_White.svg')%>
+        </div>
+      </div>
+      <div class="window-detail-intro col-md-4">
+        <div class="window-detail-intro-word">
+          <p>任意窗景由以下單位提供</p>
+        </div>
+        <div class="window-detail-intro-provider">
+          <div class="window-detail-intro-provider-img pull-left">
+            <%= image_tag asset_url('http://placehold.it/36x36')%>
+          </div>
+          <div class="window-detail-intro-provider-info">
+            <div class="window-detail-intro-provider-info-name">
+              <p> <%= @window.provider_name %> </p>
+            </div>
+            <div class="window-detail-intro-provider-info-link">
+              <%= link_to @window.provider_service, @window.provider_url %>
+            </div>
+          </div>
+        </div>
+        <div class="window-detail-intro-map">
+          <iframe width="320" height="212" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=<%= @window.name%>&z=12&output=embed&t=></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="window-deatil-comments">
+      <div class="window-detail-comments-count">
+        <p> <%="留言(#{@comments.count})"%> </p>
+      </div>
+      <div class="divider"></div>
+      <% @comments.each do |comment| %>
+        <div class="window-detail-comment-items clearfix">
+          <div class="window-detail-comment-img col-md-1">
+            <%= image_tag comment.user.show_avatar %>
+          </div>
+          <div class="window-detail-comment-item col-md-5">
+            <div class="window-detail-comment-name">
+              <p> <%= comment.user.username %> </p>
+            </div>
+            <div class="window-detail-comment-content">
+              <p> <%= comment.content%> </p>
+            </div>
+          </div>
+          <div class="window-detail-comment-time col-md-2">
+            <p> <%= comment.updated_at.localtime.to_s.split(" ").first %> </p>
+          </div>
+          <div class="window-detail-comment-nil col-md-4 ">
+            <div class="nil"></div>
+          </div>
+        </div>
+      <% end %>
+
+      <%= form_for [@window, @comment], :class => "form" do |f| %>
+        <div class="window-detail-comment-img pull-left">
+          <%= image_tag current_user.show_avatar %>
+        </div>
+        <div class="comment-input">
+          <%= f.text_field :content  %>
+        </div>
+        <%= f.submit "Save", style: "display: none;" %>
+      <% end %>
+    </div>
+  </div>
+</div>

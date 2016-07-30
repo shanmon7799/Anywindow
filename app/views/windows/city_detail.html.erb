@@ -1,0 +1,61 @@
+<div class="container-search-full">
+  <div class="container-search-result">
+    <div class="search-result-title">
+      <div class="search-result-dist">
+        <p> <%= "距離臺北#{@city.distance}公里" %> </p>
+      </div>
+      <div class="search-result-city">
+        <h2><%= @city.name %></h2>
+      </div>
+    </div>
+
+    <div class="search-result-intro">
+      <div class="search-result-intro-img col-md-8">
+        <img src="http://placehold.it/664x436" alt="">
+        <div class="search-result-intro-random">
+          <%= image_tag asset_url('Go_White.svg')%>
+        </div>
+      </div>
+      <div class="search-result-intro-data col-md-4">
+        <div class="search-result-intro-word ">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum sapiente alias delectus cumque quas nulla itaque incidunt repellat, impedit magnam dolore ducimus, quos, commodi quo ad! Incidunt veritatis magni exercitationem!  </p>
+        </div>
+        <div class="search-result-intro-map">
+          <iframe width="320" height="212" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src=http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=<%= @city.name%>&z=5&output=embed&t=></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-result-city-windows">
+      <div class="search-result-city-windows-count">
+        <p> <%="工作地點(#{@city.windows.count})" %> </p>
+      </div>
+      <div class="search-result-windows">
+        <% @city.windows.each do |window| %>
+          <div class="search-result-window col-md-4 ">
+            <div class="search-result-window-img">
+              <%= link_to image_tag('http://placehold.it/320x212'), window_detail_windows_path(id: window) %>
+            </div>
+            <div class="search-result-window-intro clearfix">
+              <div class="search-result-window-name pull-left">
+                <p><%= window.name %></p>
+              </div>
+              <div class="search-result-window-action pull-right">
+                <div class="search-result-window-comments pull-left">
+                  <%= image_tag asset_url("Comment_White.svg") %>
+                  <%= window.comments.count %>
+                </div>
+                <div class="search-result-window-start pull-right">
+                  <%= image_tag asset_url("Go_White.svg") %>
+                </div>
+              </div>
+            </div>
+            <div class="search-result-window-pageviews">
+              <%= "#{window.users.count}個人在這裡工作過"%>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
