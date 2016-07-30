@@ -8,7 +8,16 @@ class WindowsController < ApplicationController
 
   # search => keyword search window
   def search
-    @windows = Window.all
+    if params[:keyword] && params[:keyword] != ""
+      @cities = City.where(name: params[:keyword])
+    else
+      @cities = City.all
+    end
+  end
+
+  # search_result => search bar or image click
+  def search_result
+    @city = City.find(params[:id])
   end
 
   # map => map click window

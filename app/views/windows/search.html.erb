@@ -4,26 +4,35 @@
       <h2>發掘世界各個角落</h2>
     </div>
     <div class="search-bar">
-      <input type="text" name="search" placeholder="    今天想看什麼樣的風景?">
+      <div class="form-group">
+        <%= form_tag search_windows_path, :method => :get do %>
+          <%= text_field_tag "keyword",nil ,placeholder: "    今天想看什麼樣的風景?" %>
+          <%= submit_tag "Search", style: "display: none;" %>
+        <% end %>
     </div>
   </div>
   <div class="container-windows">
-    <% @windows.each do |window| %>
+    <% @cities.each do |city| %>
     <div class="search-window col-md-4">
       <div class="search-window-img">
-        <% window.images.each do |image| %>
-          <%= image_tag (image.image.url(:medium))%>
-        <% end %>
+        <%# city.images.each do |image| %>
+          <%#= image_tag (image.image.url(:medium))%>
+        <%# end %>
+        <%= link_to image_tag('http://placehold.it/316x316'), search_result_windows_path(id: city) %>
       </div>
       <div class="search-window-words">
         <div class="search-window-city">
-          <%= window.city.name %>
+          <%= city.name %>
         </div>
         <div class="search-window-country">
-          <%= window.city.country.name %>
+          <%= city.country.name %>
         </div>
       </div>
     </div>
     <% end %>
   </div>
 </div>
+
+<script>
+  $('#keyword').select2();
+</script>

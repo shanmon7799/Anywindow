@@ -12,5 +12,5 @@ class Window < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_many :user_windowships, dependent: :destroy
-  has_many :users, through: :user_windowship
+  has_many :users, through: :user_windowships
 end

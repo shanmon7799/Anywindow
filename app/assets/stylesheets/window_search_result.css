@@ -1,0 +1,108 @@
+.container-search-result {
+  width: 1050px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.search-result-dist {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 14px;
+  color: #444444;
+  letter-spacing: 0.5px;
+}
+
+.search-result-city {
+  font-family: SourceHanSansTWHK-Medium;
+  font-size: 30px;
+  color: #444444;
+  letter-spacing: 0.5px;
+}
+
+.search-result-city>h2 {
+  margin: 0;
+}
+
+.search-result-intro {
+  padding-top: 24px;
+  padding-bottom: 494px;
+}
+
+.search-result-intro-img {
+  padding-left: 0px;
+}
+
+.search-result-intro-data {
+  padding-left: 0px;
+}
+
+.search-result-intro-map {
+  padding-top: 6px;
+}
+
+.search-result-city-windows {
+  }
+
+.search-result-city-windows-count {
+  font-family: SourceHanSansTWHK-Medium;
+  font-size: 24px;
+  color: #444444;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+}
+
+.search-result-window {
+  padding-left: 0px;
+  padding-right: 24px;
+}
+
+.search-result-window-intro {
+  padding-top: 16px;
+}
+
+.search-result-window-name {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 18px;
+  color: #444444;
+  letter-spacing: 0.5px;
+}
+
+.search-result-window-comments {
+  font-family: SourceHanSansTWHK-Light;
+  font-size: 16px;
+  color: #FFFFFF;
+  background: #58C6C8;
+  border-radius: 16px;
+  width: 55px;
+  height: 32px;
+  text-align: center;
+}
+
+.search-result-window-comments>img {
+  width: 24px;
+  height: 100%;
+}
+
+.search-result-window-start {
+  background: #4565C3;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.search-result-window-start>img {
+  width: 24px;
+  height: 100%;
+}
+
+.search-result-window-action {
+  padding-right: 14px;
+}
+
+.search-result-window-pageviews {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 12px;
+  color: #9B9B9B;
+  letter-spacing: 0.33px;
+}
