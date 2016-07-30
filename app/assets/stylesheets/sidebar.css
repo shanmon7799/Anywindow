@@ -1,9 +1,17 @@
+.siderbar-background {
+  width: 340px;
+  height: 100%;
+  position: absolute;
+  background-color: #2546AA;
+  z-index: 0;
+  opacity: 0.15;
+}
+
 .sidebar {
   width: 340px;
   height: 100%;
   position: absolute;
-  background: #2546AA;
-  opacity: 0.3;
+  z-index: 2;
 }
 
 .sidebar-items {
@@ -50,7 +58,7 @@
   padding: 10px;
 }
 
-.sidebar-logout {
+.sidebar-logout>a {
   font-family: SourceHanSansTWHK-Normal;
   font-size: 14px;
   letter-spacing: 1px;
@@ -58,9 +66,10 @@
   color: white;
 }
 
-.sidebar-info .sidebar-username {
+.sidebar-username>p {
   font-family: SourceHanSansTWHK-Normal;
   font-size: 11px;
   letter-spacing: 0px;
+  opacity: 0.5;
   color: white;
 }

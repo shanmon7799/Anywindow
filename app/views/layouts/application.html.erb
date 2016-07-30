@@ -79,7 +79,7 @@
               <%= link_to "登出", destroy_user_session_path, method: :delete %>
             </div>
             <div class="sidebar-username">
-              <%= current_user.username %>
+              <p> <%= current_user.username %> </p>
             </div>
           </div>
           <div class="avatar-img col-md-6">
@@ -87,8 +87,20 @@
           </div>
         </div>
       </div>
+      <div class="siderbar-background"></div>
     <% end %>
     <!-- 顯示 各個views -->
     <%= yield %>
   </body>
 </html>
+
+<script>
+  $(document).ready(function(e){
+    $('.sidebar').hide();
+    $('.siderbar-background').hide();
+    $('.navbar-icon').click(function(e){
+      $('.sidebar').toggle();
+      $('.siderbar-background').toggle();
+    });
+  });
+</script>
