@@ -37,7 +37,12 @@
   padding-left: 0px;
 }
 
-.search-result-intro-random>img {
+.search-result-intro-img img {
+  width: 664px;
+  height: 436px;
+}
+
+.search-result-intro-random>a>img {
   width: 27px;
   height: auto;
   margin-top: 3px;
@@ -127,7 +132,7 @@
   text-align: center;
 }
 
-.search-result-window-start>img {
+.search-result-window-start img {
   width: 24px;
   height: 100%;
 }
@@ -141,4 +146,9 @@
   font-size: 12px;
   color: #9B9B9B;
   letter-spacing: 0.33px;
+}
+
+.search-result-window-img img {
+  width: 320px;
+  height: 212px;
 }

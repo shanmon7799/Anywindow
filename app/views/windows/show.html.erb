@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="show-Rest-init-words">
+    <div class="show-rest-init-words">
       <div class="show-init-welcome">
         <h2>工作辛苦了，看個風景吧！</h2>
       </div>
@@ -30,6 +30,15 @@
       </div>
       <div class="show-init-word">
         <p>休息很重要，5分鐘讓你更專注下一個任務。</p>
+      </div>
+    </div>
+
+    <div class="show-rest-starting">
+      <div class="show-quote-content">
+        <h2> 從大三島到生口島的跨海大橋上 </h2>
+      </div>
+      <div class="show-quote-author">
+        <p> 從日本四國到本州，只要一個小時車程，經過七個小島的路程。 </p>
       </div>
     </div>
 
@@ -58,18 +67,7 @@
       </div>
     </div>
 
-    <div class="show-rest-pause">
-      <div class="show-rest-location">
-        <div class="show-working-title">
-          <p> <%= @window.name %> </p>
-        </div>
-        <div class="show-working-content">
-          <p> <%= @window.city.name %> </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="show-rest-ending">
+    <div class="show-location-words">
       <div class="show-rest-location">
         <div class="show-working-title">
           <p> <%= @window.name %> </p>
@@ -93,8 +91,8 @@
   </div>
 
   <div class="show-bottom-center">
-    <div class="show-working-items">
-      <div class="show-working-item pull-left">
+    <div class="show-working-item pull-left">
+      <div class="working-pause">
         <div class="show-working-item-img pull-left">
           <%= image_tag asset_path('Pause_White.svg') %>
         </div>
@@ -102,7 +100,37 @@
           <p>暫停工作</p>
         </div>
       </div>
-      <div class="show-working-item pull-right">
+      <div class="working-again">
+        <div class="show-working-item-img pull-left">
+          <%= image_tag asset_path('Play_White.svg') %>
+        </div>
+        <div class="show-working-item-word pull-right">
+          <p>繼續工作</p>
+        </div>
+      </div>
+      <div class="rest-pause">
+        <div class="show-working-item pull-left">
+          <div class="show-working-item-img pull-left">
+            <%= image_tag asset_path('Pause_White.svg') %>
+          </div>
+          <div class="show-working-item-word pull-right">
+            <p>暫停休息</p>
+          </div>
+        </div>
+      </div>
+      <div class="rest-again">
+        <div class="show-working-item pull-left">
+          <div class="show-working-item-img pull-left">
+            <%= image_tag asset_path('Play_White.svg') %>
+          </div>
+          <div class="show-working-item-word pull-right">
+            <p>繼續休息</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="show-working-item pull-right">
+      <div class="audio-pause">
         <div class="show-working-item-img pull-left">
           <%= image_tag asset_path('Mute_White.svg') %>
         </div>
@@ -110,42 +138,14 @@
           <p>關閉聲音</p>
         </div>
       </div>
-    </div>
-
-    <div class="show-rest-pause">
-      <div class="show-working-item pull-left">
-        <div class="show-working-item-img pull-left">
-          <%= image_tag asset_path('Play_White.svg') %>
-        </div>
-        <div class="show-working-item-word pull-right">
-          <p>繼續休息</p>
-        </div>
-      </div>
-      <div class="show-working-item pull-right">
-        <div class="show-working-item-img pull-left">
-          <%= image_tag asset_path('Stop_White.svg') %>
-        </div>
-        <div class="show-working-item-word pull-right">
-          <p>停止休息</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="show-rest-ending">
-      <div class="show-working-item pull-left">
-        <div class="show-working-item-img pull-left">
-          <%= image_tag asset_path('Pause_White.svg') %>
-        </div>
-        <div class="show-working-item-word pull-right">
-          <p>暫停休息</p>
-        </div>
-      </div>
-      <div class="show-working-item pull-right">
-        <div class="show-working-item-img pull-left">
-          <%= image_tag asset_path('Unmute_White.svg') %>
-        </div>
-        <div class="show-working-item-word pull-right">
-          <p>打開聲音</p>
+      <div class="audio-again">
+        <div class="show-working-item pull-right">
+          <div class="show-working-item-img pull-left">
+            <%= image_tag asset_path('Unmute_White.svg') %>
+          </div>
+          <div class="show-working-item-word pull-right">
+            <p>打開聲音</p>
+          </div>
         </div>
       </div>
     </div>
@@ -156,7 +156,7 @@
       </div>
     </div>
 
-    <div class="show-Rest-init-words">
+    <div class="show-rest-init-words">
       <div class="show-init-link">
         <p>不休息了，我要直接下班了！<%=link_to "結束今天的工作", root_path %></p>
       </div>
@@ -177,10 +177,11 @@
 <div class="show-image">
   <%= image_tag asset_path(@window.images.first.image.url) %>
 </div>
-<!-- music play -->
+<!-- audio play -->
 <div class="show-music">
   <%= audio_tag asset_path(@window.audios.first.audio.url), id: "audio" %>
 </div>
+<!-- video play -->
 <div class="show-video">
   <%= video_tag asset_path(@window.videos.first.video.url) ,id: "video" , height: '100%', width: '100%' %>
 </div>
@@ -191,40 +192,99 @@
     $('.show-work-starting').show();
     $('.show-start-work-time').show();
     <%session[:work_start_time] = Time.now.to_i%>
-    setTimeout("WindowEnd()", 5000);//1500000
+    setTimeout("WindowStartSession()", 5000);//10000
   });
+
+  function WindowStartSession() {
+    $('.show-work-starting').hide();
+    $('.show-working').show();
+    $('.working-pause').show();
+    $('.audio-pause').show();
+    setTimeout("WindowRestInit()", 10000);
+  }
+
+  function WindowRestInit() {
+    $('#audio')[0].pause();
+    $('.show-image').hide();
+    $('.working-pause').hide();
+    $('.working-again').hide();
+    $('.audio-pause').hide();
+    $('.audio-again').hide();
+    $('.show-start-work-time').hide();
+    $('.show-working').hide();
+    $('.show-video').show();
+    $('.show-rest-init-words').show();
+    notifyMe();
+  }
 
   $('.show-rest-init-start').click(function(e){
+    $('.show-rest-init-words').hide();
     $('#video')[0].play();
-    $('.show-Rest-init-words').hide();
+    $('.show-start-work-time').show();
+    $('.show-rest-starting').show();
     <%session[:rest_start_time] = Time.now.to_i%>
-    setTimeout("alert('Over~~')", 5000);//1500000
+    setTimeout("WindowRestSession()",5000);
   });
 
+  function WindowRestSession() {
+    $('.show-rest-starting').hide();
+    $('.show-location-words').show();
+    $('.rest-pause').show();
+    $('.audio-pause').show();
+    setTimeout("$('#video')[0].pause();",10000);
+  }
 
-function WindowEnd() {
-  $('.show-work-starting').hide();
-  $('.show-start-work-time').hide();
-  $('#audio')[0].pause();
-  $('.show-image').hide();
-  $('.show-video').show();
-  $('.show-Rest-init-words').show();
-  notifyMe();
-}
+  $('.audio-pause').click(function(e){
+    $('.audio-pause').hide();
+    $('.audio-again').show();
+    $('#audio')[0].muted = true;
+    $('#video')[0].muted = true;
+  });
 
-function notifyMe() {
-  if (!("Notification" in window)) {
-    alert("This browser does not support desktop notification");
+  $('.audio-again').click(function(e){
+    $('.audio-again').hide();
+    $('.audio-pause').show();
+    $('#audio')[0].muted = false;
+    $('#video')[0].muted = false;
+  });
+
+  $('.working-pause').click(function(e){
+    $('.working-pause').hide();
+    $('.working-again').show();
+    $('#audio')[0].pause();
+  });
+
+  $('.working-again').click(function(e){
+    $('.working-again').hide();
+    $('.working-pause').show();
+    $('#audio')[0].play();
+  });
+
+  $('.rest-pause').click(function(e){
+    $('.rest-pause').hide();
+    $('.rest-again').show();
+    $('#video')[0].pause();
+  });
+
+  $('.rest-again').click(function(e){
+    $('.rest-again').hide();
+    $('.rest-pause').show();
+    $('#video')[0].play();
+  });
+
+  function notifyMe() {
+    if (!("Notification" in window)) {
+      alert("This browser does not support desktop notification");
+    }
+    else if (Notification.permission === "granted") {
+      var notification = new Notification("該休息嚕~~~");
+    }
+    else if (Notification.permission !== 'denied') {
+      Notification.requestPermission(function (permission) {
+        if (permission === "granted") {
+          var notification = new Notification("該休息嚕~~~");
+        }
+      });
+    }
   }
-  else if (Notification.permission === "granted") {
-    var notification = new Notification("該休息嚕~~~");
-  }
-  else if (Notification.permission !== 'denied') {
-    Notification.requestPermission(function (permission) {
-      if (permission === "granted") {
-        var notification = new Notification("該休息嚕~~~");
-      }
-    });
-  }
-}
 </script>

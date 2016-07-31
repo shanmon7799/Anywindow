@@ -40,7 +40,7 @@
 
 .show-bottom-left {
   position: absolute;
-  bottom: 0px;
+  bottom: 3vh;
   left: 24px;
 }
 
@@ -67,11 +67,7 @@
   display: none;
 }
 
-.show-working-items {
-  display: none;
-}
-
-.show-Rest-init-words {
+.show-rest-init-words {
   display: none;
 }
 
@@ -79,11 +75,35 @@
   display: none;
 }
 
-.show-rest-pause {
+.show-location-words {
   display: none;
 }
 
-.show-rest-ending {
+.show-rest-starting {
+  display: none;
+}
+
+.working-pause {
+  display: none;
+}
+
+.working-again {
+  display: none;
+}
+
+.rest-pause {
+  display: none;
+}
+
+.rest-again {
+  display: none;
+}
+
+.audio-pause {
+  display: none;
+}
+
+.audio-again {
   display: none;
 }
 

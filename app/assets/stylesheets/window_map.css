@@ -1,0 +1,11 @@
+.container-map {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.coming_soon {
+  width: inherit;
+  align-self:center;
+  text-align: center;
+}
