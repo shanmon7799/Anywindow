@@ -8,21 +8,31 @@
       <%#= city.select :name, City.all.map{ |c| [c.name, c.name] }, :class => "form-control" %>
       <%= city.label :location, "location(十進制)" %>
       <%= city.text_field :location %>
+      <%= city.label :en_name, "En_name" %>
+      <%= city.text_field :en_name %>
+      <br><br>
+      <%= city.label :description, "Description" %>
+      <%= city.text_area :description %>
 	</div>
 
 	<div class="form-group">
-    Upload city_images
+    <h4>Upload city_images(Limit 664x436)</h4>
     <%= file_field_tag "city_images", type: :file%>
+  </div>
+
+  <div class="form-group">
+    <h4>Upload city_image_square</h4>
+    <%= file_field_tag "city_image_square", type: :file%>
   </div>
 
   <div class="form-group">
     <%= fields_for @countries do |country| %>
     <%= country.label :name, "Country" %>
-    <%= country.select :name, @countries.map{ |c| [c.name, c.name] },{},include_blank: true, :class => "form-control", style: "width: 20%" %>
+    <%= country.select :name, @countries.map{ |c| [c.name, c.name] },{},include_blank: true, :class => "form-control", style: "width: 10%" %>
     <% end %>
   </div>
 
-	<div class="form-actions btn-group">
+  <div class="form-actions btn-group">
     <%= city.submit "Create", :class => "btn btn-primary" %>
     <%= link_to "Cancel", admin_windows_path, :class => "btn btn-danger" %>
   </div>
@@ -30,5 +40,6 @@
 <% end %>
 
 <script>
+  $('#country_name').select2();
   $('#city_name').select2();
 </script>

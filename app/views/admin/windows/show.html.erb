@@ -1,16 +1,34 @@
 <h1>Window Name: <%= @window.name %></h1>
 <h2>location: <%= "#{@window.latitude}, #{@window.longitude}" %></h2>
+<h2>Provider_name: <%= @window.provider_name %> </h2>
+<h2>Provider_service: <%= @window.provider_service%> </h2>
+<h2>Provider_url: <%= @window.provider_url %></h2>
+
 <div>
-<h2>Images</h2>
+<h2>Window Images</h2>
 <% @window.images.each do |image| %>
   <%= image_tag (image.image.url(:medium))%>
 <% end %>
 </div>
 
 <div>
+<h2>Provider_pic</h2>
+  <% if @window.provider_pic.exists? %>
+    <%= image_tag (@window.provider_pic.url)%>
+  <% end %>
+</div>
+
+<div>
 <h2>City Images</h2>
   <% if @window.city.image.exists? %>
     <%= image_tag (@window.city.image.url)%>
+  <% end %>
+</div>
+
+<div>
+<h2>City Image_square</h2>
+  <% if @window.city.image_square.exists? %>
+    <%= image_tag (@window.city.image_square.url)%>
   <% end %>
 </div>
 

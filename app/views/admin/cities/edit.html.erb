@@ -8,14 +8,28 @@
       <%#= city.select :name, City.all.map{ |c| [c.name, c.name] }, :class => "form-control" %>
       <%= city.label :location, "location(十進制)" %>
       <%= city.text_field :location %>
-	</div>
+      <%= city.label :en_name, "En_name" %>
+      <%= city.text_field :en_name %>
+      <br><br>
+      <%= city.label :description, "Description" %>
+      <%= city.text_area :description %>
+  </div>
 
 	<div class="form-group">
     <h4>Upload city_images(Limit 664x436)</h4>
-    <%= file_field_tag "city_images[]", type: :file%>
+    <%= file_field_tag "city_images", type: :file%>
     <% if @city.image.exists? %>
       <%= check_box_tag "remove_city_images", "1" %> Remove Image
         <%= image_tag (@city.image.url)%>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <h4>Upload city_image_square</h4>
+    <%= file_field_tag "city_image_square", type: :file%>
+    <% if @city.image_square.exists? %>
+      <%= check_box_tag "remove_city_image_square", "1" %> Remove Image
+        <%= image_tag (@city.image_square.url)%>
     <% end %>
   </div>
 

@@ -7,7 +7,21 @@
   </div>
 
   <div class="form-group">
-    <%= w.label :images, "Upload images"  %>
+    <%= w.label :provider_name, "Provider_name" %>
+    <%= w.text_field :provider_name %>
+    <br><br>
+    <%= w.label :provider_service, "Provider_service" %>
+    <%= w.text_field :provider_service %>
+    <br><br>
+    <%= w.label :provider_url, "Provider_url" %>
+    <%= w.text_field :provider_url %>
+    <br><br>
+    <%= w.label :provider_pic, "Upload Provider_pic"  %>
+    <%= file_field_tag "provider_pic", type: :file%>
+  </div>
+
+  <div class="form-group">
+    <%= w.label :images, "Upload window images"  %>
     <%= file_field_tag "images[]", type: :file%>
     <% if @window.images.exists? %>
       <%= check_box_tag "remove_images", "1" %> Remove All Images
