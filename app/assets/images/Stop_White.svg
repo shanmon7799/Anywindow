@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39 (31667) - http://www.bohemiancoding.com/sketch -->
+    <title>Stop White</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="11" y="10" width="14" height="16"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="14" height="16" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Stop-White">
+            <g id="Stop">
+                <rect id="Bound" x="0" y="0" width="48" height="48"></rect>
+                <g id="Group" transform="translate(6.000000, 6.000000)">
+                    <path d="M17.9963988,0 C8.0714905,0 0,8.0750917 0,17.9987996 C0,27.9225075 8.0726909,36 17.9963988,36 C27.9237079,36 36,27.9225075 36,17.9987996 C36,8.0750917 27.9237079,0 17.9963988,0 L17.9963988,0 Z M17.9963988,34.7083695 C8.78692898,34.7083695 1.29163054,27.213071 1.29163054,17.9987996 C1.29163054,8.78692898 8.78692898,1.29163054 17.9963988,1.29163054 C27.2106702,1.29163054 34.7083695,8.78692898 34.7083695,17.9987996 C34.7083695,27.213071 27.2106702,34.7083695 17.9963988,34.7083695 L17.9963988,34.7083695 Z" id="Pause-round-2" fill="#FFFFFF"></path>
+                    <use id="Rectangle" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

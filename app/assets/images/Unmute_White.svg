@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39 (31667) - http://www.bohemiancoding.com/sketch -->
+    <title>Unmute White</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M3.42531661,19.1231527 C1.53328317,19.1231527 0,17.5858441 0,15.6894778 L0,11.7982069 C0,9.90598005 1.53356648,8.36453202 3.42531661,8.36453202 L5.46089541,8.36453202 C9.89102233,4.11514313 17.3039285,0.67277963 18.7428019,2.15559481 C19.8143819,3.25989977 20.0921721,8.6387532 20.1428571,14.2147742 C20.1905243,19.4587875 20.0865032,24.9093321 18.7428019,26.1555948 C16.6921965,28.0575005 8.57483392,23.8636778 4.48681449,19.1231527 L3.42531661,19.1231527 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="20.5714286" height="24.8571429" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M22.2857143,23.1428571 C26.0728097,23.1428571 29.1428571,18.9215419 29.1428571,13.7142857 C29.1428571,8.5070295 26.0728097,4.28571429 22.2857143,4.28571429" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="6.85714286" height="18.8571429" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <path d="M27.4285714,27.4285714 C32.1624407,27.4285714 36,21.2884766 36,13.7142857 C36,6.14009486 32.1624407,0 27.4285714,0" id="path-5"></path>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="8.57142857" height="27.4285714" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Unmute-White">
+            <g id="Unmute">
+                <rect id="Bound" x="0" y="0" width="48" height="48"></rect>
+                <g id="Voice" transform="translate(6.000000, 10.000000)" stroke-width="2" stroke="#FFFFFF">
+                    <g id="Main">
+                        <use id="Rectangle-153" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                        <use id="Oval" mask="url(#mask-4)" xlink:href="#path-3"></use>
+                        <use id="Oval-2" mask="url(#mask-6)" xlink:href="#path-5"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

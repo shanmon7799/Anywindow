@@ -1,0 +1,230 @@
+<div class="container-show">
+  <div class="show-center">
+    <div class="show-init-words">
+      <div class="show-init-welcome">
+        <h2><%= "歡迎來到#{@window.name}" %></h2>
+      </div>
+      <div class="show-init-start">
+        <p>開始工作</p>
+      </div>
+      <div class="show-init-word">
+        <p>最佳的專注工作時間是25分鐘</p>
+      </div>
+    </div>
+
+    <div class="show-work-starting">
+      <div class="show-quote-content">
+        <h2> <%= "『 #{@quote.content} 』" %> </h2>
+      </div>
+      <div class="show-quote-author">
+        <p> <%= "#{@quote.author}" %> </p>
+      </div>
+    </div>
+
+    <div class="show-Rest-init-words">
+      <div class="show-init-welcome">
+        <h2>工作辛苦了，看個風景吧！</h2>
+      </div>
+      <div class="show-rest-init-start">
+        <p>開始休息</p>
+      </div>
+      <div class="show-init-word">
+        <p>休息很重要，5分鐘讓你更專注下一個任務。</p>
+      </div>
+    </div>
+
+    <div class="show-working-again">
+      <div class="show-init-welcome">
+        <h2>要開始工作嚕</h2>
+      </div>
+      <div class="show-init-start">
+        <p>開始工作</p>
+      </div>
+      <div class="show-init-word">
+        <p>新的地方，新的心情，把其他的事都忘記，專注工作吧！</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-bottom-left">
+    <div class="show-working">
+      <div class="show-working-quote">
+        <div class="show-working-title">
+          <p> <%= "『 #{@quote.content} 』" %> </p>
+        </div>
+        <div class="show-working-content">
+          <p> <%= "#{@quote.author}" %> </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-rest-pause">
+      <div class="show-rest-location">
+        <div class="show-working-title">
+          <p> <%= @window.name %> </p>
+        </div>
+        <div class="show-working-content">
+          <p> <%= @window.city.name %> </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-rest-ending">
+      <div class="show-rest-location">
+        <div class="show-working-title">
+          <p> <%= @window.name %> </p>
+        </div>
+        <div class="show-working-content">
+          <p> <%= @window.city.name %> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-bottom-right">
+    <div class="show-start-work-time">
+      <div class="show-work-time-word">
+        <p>距離工作結束還有</p>
+      </div>
+      <div class="show-work-time-display">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="show-bottom-center">
+    <div class="show-working-items">
+      <div class="show-working-item pull-left">
+        <div class="show-working-item-img pull-left">
+          <%= image_tag asset_path('Pause_White.svg') %>
+        </div>
+        <div class="show-working-item-word pull-right">
+          <p>暫停工作</p>
+        </div>
+      </div>
+      <div class="show-working-item pull-right">
+        <div class="show-working-item-img pull-left">
+          <%= image_tag asset_path('Mute_White.svg') %>
+        </div>
+        <div class="show-working-item-word pull-right">
+          <p>關閉聲音</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-rest-pause">
+      <div class="show-working-item pull-left">
+        <div class="show-working-item-img pull-left">
+          <%= image_tag asset_path('Play_White.svg') %>
+        </div>
+        <div class="show-working-item-word pull-right">
+          <p>繼續休息</p>
+        </div>
+      </div>
+      <div class="show-working-item pull-right">
+        <div class="show-working-item-img pull-left">
+          <%= image_tag asset_path('Stop_White.svg') %>
+        </div>
+        <div class="show-working-item-word pull-right">
+          <p>停止休息</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-rest-ending">
+      <div class="show-working-item pull-left">
+        <div class="show-working-item-img pull-left">
+          <%= image_tag asset_path('Pause_White.svg') %>
+        </div>
+        <div class="show-working-item-word pull-right">
+          <p>暫停休息</p>
+        </div>
+      </div>
+      <div class="show-working-item pull-right">
+        <div class="show-working-item-img pull-left">
+          <%= image_tag asset_path('Unmute_White.svg') %>
+        </div>
+        <div class="show-working-item-word pull-right">
+          <p>打開聲音</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-init-words">
+      <div class="show-init-link">
+        <p>今天心情不適合這個風景？<%=link_to "重新選擇工作地點", root_path %></p>
+      </div>
+    </div>
+
+    <div class="show-Rest-init-words">
+      <div class="show-init-link">
+        <p>不休息了，我要直接下班了！<%=link_to "結束今天的工作", root_path %></p>
+      </div>
+    </div>
+
+    <div class="show-working-again">
+      <div class="show-init-link">
+        <p>
+          <%= link_to "重新選擇工作地點", root_path %>
+          <%= link_to "結束今天的工作", root_path %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- show image -->
+<div class="show-image">
+  <%= image_tag asset_path(@window.images.first.image.url) %>
+</div>
+<!-- music play -->
+<div class="show-music">
+  <%= audio_tag asset_path(@window.audios.first.audio.url), id: "audio" %>
+</div>
+<div class="show-video">
+  <%= video_tag asset_path(@window.videos.first.video.url) ,id: "video" , height: '100%', width: '100%' %>
+</div>
+<script>
+  $('.show-init-start').click(function(e){
+    $('#audio')[0].play();
+    $('.show-init-words').hide();
+    $('.show-work-starting').show();
+    $('.show-start-work-time').show();
+    <%session[:work_start_time] = Time.now.to_i%>
+    setTimeout("WindowEnd()", 5000);//1500000
+  });
+
+  $('.show-rest-init-start').click(function(e){
+    $('#video')[0].play();
+    $('.show-Rest-init-words').hide();
+    <%session[:rest_start_time] = Time.now.to_i%>
+    setTimeout("alert('Over~~')", 5000);//1500000
+  });
+
+
+function WindowEnd() {
+  $('.show-work-starting').hide();
+  $('.show-start-work-time').hide();
+  $('#audio')[0].pause();
+  $('.show-image').hide();
+  $('.show-video').show();
+  $('.show-Rest-init-words').show();
+  notifyMe();
+}
+
+function notifyMe() {
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+  else if (Notification.permission === "granted") {
+    var notification = new Notification("該休息嚕~~~");
+  }
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      if (permission === "granted") {
+        var notification = new Notification("該休息嚕~~~");
+      }
+    });
+  }
+}
+</script>

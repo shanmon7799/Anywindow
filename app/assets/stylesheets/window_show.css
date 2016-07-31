@@ -1,0 +1,166 @@
+/*Container and image and video*/
+.container-show {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  color: white;
+}
+
+.show-image>img {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 60px;
+  left: 0px;
+  z-index: -1;
+}
+
+.show-video {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+/*Position Setting*/
+.show-center {
+  position: absolute;
+  text-align: center;
+  align-self: center;
+  width: inherit;
+}
+
+.show-bottom-right {
+  position: absolute;
+  bottom: 5vh;
+  right: 24px;
+}
+
+.show-bottom-left {
+  position: absolute;
+  bottom: 0px;
+  left: 24px;
+}
+
+.show-bottom-center {
+  position: absolute;
+  bottom: 5vh;
+  left: 43%;
+}
+
+/*Status Seting*/
+.show-init-words {
+  /*display: none;*/
+}
+
+.show-work-starting {
+  display: none;
+}
+
+.show-working {
+  display: none;
+}
+
+.show-start-work-time {
+  display: none;
+}
+
+.show-working-items {
+  display: none;
+}
+
+.show-Rest-init-words {
+  display: none;
+}
+
+.show-working-again {
+  display: none;
+}
+
+.show-rest-pause {
+  display: none;
+}
+
+.show-rest-ending {
+  display: none;
+}
+
+/*CSS setting*/
+.show-init-welcome {
+  font-family: SourceHanSansTWHK-Medium;
+  font-size: 36px;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+
+.show-init-start {
+  width: 140px;
+  height: 36px;
+  margin: 0px auto;
+  background: #4565C3;
+  border-radius: 2px;
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.show-init-word {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 14px;
+  letter-spacing: 0.19px;
+  margin: 12px;
+}
+
+.show-working-title {
+  font-family: SourceHanSansTWHK-Medium;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.show-working-content {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 14px;
+  letter-spacing: 0.38px;
+}
+
+.show-working-item-word {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 14px;
+  letter-spacing: 0.38px;
+  padding: 14px 4px 4px 4px;
+}
+
+.show-rest-init-start {
+  background: #58C6C8;
+  border-radius: 2px;
+  width: 140px;
+  height: 36px;
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 14px;
+  margin: 0px auto;
+  padding: 8px;
+}
+
+.show-init-link {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 14px;
+  letter-spacing: 0.19px;
+}
+
+.show-init-link a {
+  color: white;
+}
+
+.show-quote-content {
+  font-family: SourceHanSansTWHK-Medium;
+  font-size: 36px;
+  letter-spacing: 0.5px;
+}
+
+.show-quote-author {
+  font-family: SourceHanSansTWHK-Normal;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
