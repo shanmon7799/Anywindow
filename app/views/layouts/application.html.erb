@@ -16,6 +16,9 @@
           <span class="navbar-icon pull-left">
             <%= image_tag asset_path("Menu_White.svg") %>
           </span>
+          <% if current_user.is_admin?%>
+            <%= link_to "後台登入", admin_windows_path, class: "btn btn-warning pull-right" %>
+          <% end %>
         </div>
         <div id="logo" class="col-md-4">
           <%= image_tag asset_path("Combined_Shape.png") %>
@@ -24,9 +27,6 @@
           <%= image_tag current_user.show_avatar%>
         </div>
       </nav>
-      <% if current_user.is_admin?%>
-        <%= link_to "後台登入", admin_windows_path, class: "btn btn-warning pull-right" %>
-      <% end %>
       <!-- sidebar  -->
       <div class="sidebar">
         <div class="sidebar-items">
@@ -35,7 +35,7 @@
               <span class="sidebar-icon pull-left">
                 <%= image_tag asset_path("Random_White.svg") %>
               </span>
-              <%= link_to content_tag(:p,"隨機帶我去工作地點"), root_path%>
+              <%= link_to content_tag(:p,"隨機帶我去工作地點"), random_windows_path %>
             </a>
           </div>
           <div class="sidebar-item">
@@ -95,12 +95,10 @@
 </html>
 
 <script>
-  $(document).ready(function(e){
-    $('.sidebar').hide();
-    $('.siderbar-background').hide();
-    $('.navbar-icon').click(function(e){
-      $('.sidebar').toggle();
-      $('.siderbar-background').toggle();
-    });
+  $('.sidebar').hide();
+  $('.siderbar-background').hide();
+  $('.navbar-icon').click(function(e){
+    $('.sidebar').toggle();
+    $('.siderbar-background').toggle();
   });
 </script>
