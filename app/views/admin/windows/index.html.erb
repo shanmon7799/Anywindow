@@ -50,6 +50,13 @@
 <br>
   <%= submit_tag "Import" %>
 <% end %>
-
+  <!--#Import CSV></!-->
+  <h2>Import Cities</h2>
+  <%= form_tag import_admin_cities_path, multipart: true do %>
+    <%= file_field_tag :file %>
+  <br>
+    <%= submit_tag "Import" %>
+  <% end %>
+  <br>
 <hr>
 <%= link_to "Back to windows", windows_path, class:"btn btn-info"%>

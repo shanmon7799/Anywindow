@@ -52,6 +52,12 @@ class Admin::CitiesController < ApplicationController
 		end
 	end
 
+	#Import CSV
+  def import
+    City.import(params[:file])
+    redirect_to admin_windows_path
+  end
+
 	protected
 
 	def set_city
@@ -59,7 +65,7 @@ class Admin::CitiesController < ApplicationController
 	end
 
 	def city_params
-  	params.require(:city).permit(:name)
+  	params.require(:city).permit(:name, :country_id, :en_name)
   end
 
 end
