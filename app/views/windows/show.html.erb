@@ -189,6 +189,7 @@
   $('.show-init-start').click(function(e){
     $('#audio')[0].play();
     $('.show-init-words').hide();
+    $('.show-working-again').hide();
     $('.show-work-starting').show();
     $('.show-start-work-time').show();
     <%session[:work_start_time] = Time.now.to_i%>
@@ -231,7 +232,17 @@
     $('.show-location-words').show();
     $('.rest-pause').show();
     $('.audio-pause').show();
-    setTimeout("$('#video')[0].pause();",10000);
+    setTimeout("WindowRestEnd()",10000);
+  }
+
+  function WindowRestEnd() {
+    $('.show-location-words').hide();
+    $('.rest-pause').hide();
+    $('.rest-again').hide();
+    $('.audio-pause').hide();
+    $('.audio-again').hide();
+    $('#video')[0].pause();
+    $('.show-working-again').show();
   }
 
   $('.audio-pause').click(function(e){

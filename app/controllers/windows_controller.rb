@@ -6,7 +6,12 @@ class WindowsController < ApplicationController
   end
 
   def random
-    @window = Window.order("RAND()").first
+    if params[:city_id]
+      city = City.find(params[:city_id])
+      @window = city.windows.sample(1)
+    else
+      @window = Window.order("RAND()").first
+    end
     redirect_to window_path(@window)
   end
 

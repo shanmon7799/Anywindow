@@ -21,7 +21,7 @@
         </div>
         <div class="window-detail-intro-provider">
           <div class="window-detail-intro-provider-img pull-left">
-            <%= image_tag asset_url('http://placehold.it/36x36')%>
+            <%= image_tag asset_path(@window.provider_pic.url)%>
           </div>
           <div class="window-detail-intro-provider-info">
             <div class="window-detail-intro-provider-info-name">
@@ -55,10 +55,10 @@
               <p> <%= comment.content%> </p>
             </div>
           </div>
-          <div class="window-detail-comment-time col-md-2">
+          <div class="window-detail-comment-time col-md-3">
             <p> <%= comment.updated_at.localtime.to_s.split(" ").first %> </p>
           </div>
-          <div class="window-detail-comment-nil col-md-4 ">
+          <div class="window-detail-comment-nil col-md-3 ">
             <div class="nil"></div>
           </div>
         </div>

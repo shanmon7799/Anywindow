@@ -91,6 +91,7 @@
 
 .window-detail-comment-img {
   padding: 0px;
+  width: 30px;
 }
 
 .window-detail-comment-item p {
@@ -114,7 +115,7 @@
 
 .window-detail-comment-time>p {
   margin: 0px;
-  padding: 20px 0px 15px 55px;
+  padding: 20px 0px 15px 115px;
   font-family: PingFangTC-Light;
   font-size: 12px;
   color: #4A4A4A;

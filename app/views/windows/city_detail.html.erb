@@ -13,7 +13,7 @@
       <div class="search-result-intro-img col-md-8">
         <%= image_tag asset_path @city.image.url %>
         <div class="search-result-intro-random">
-          <%= link_to image_tag(asset_path('Go_White.svg')), random_windows_path(id: @city) %>
+          <%= link_to image_tag(asset_path('Go_White.svg')), random_windows_path(city_id: @city) %>
         </div>
       </div>
       <div class="search-result-intro-data col-md-4">

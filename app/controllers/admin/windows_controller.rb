@@ -60,7 +60,7 @@ class Admin::WindowsController < ApplicationController
 
       @window.images.destroy_all  if params[:remove_images]
       @window.audios.destroy_all  if params[:remove_audios]
-      @window.videos.destroy_all  if params[:remove_vedios]
+      @window.videos.destroy_all  if params[:remove_videos]
 
       if params[:images]
         params[:images].each do |image|
