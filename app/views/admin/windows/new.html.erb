@@ -11,13 +11,6 @@
     <% end %>
   </div>
 
-  <div class="form-group">
-    <%= fields_for @countries do |country| %>
-    <%= country.label :name, "Country" %>
-    <%= country.select :name, @countries.map{ |c| [c.name, c.name] },{},include_blank: true, :class => "form-control", style: "width: 10%" %>
-    <% end %>
-  </div>
-
 	<div class="form-actions btn-group">
     <%= w.submit "Create", :class => "btn btn-primary" %>
     <%= link_to "Cancel", admin_windows_path, :class => "btn btn-danger" %>

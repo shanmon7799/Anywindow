@@ -8,7 +8,12 @@
       <%#= city.select :name, City.all.map{ |c| [c.name, c.name] }, :class => "form-control" %>
       <%= city.label :location, "location(十進制)" %>
       <%= city.text_field :location %>
-	</div>
+      <%= city.label :en_name, "En_name" %>
+      <%= city.text_field :en_name %>
+      <br><br>
+      <%= city.label :description, "Description" %>
+      <%= city.text_area :description %>
+  </div>
 
 	<div class="form-group">
     <h4>Upload city_images(Limit 664x436)</h4>

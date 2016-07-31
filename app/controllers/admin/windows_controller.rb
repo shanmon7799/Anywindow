@@ -30,6 +30,10 @@ class Admin::WindowsController < ApplicationController
     @window.longitude = params[:window][:locations].split(",").last
 
     if @window.save
+      if params[:provider_pic]
+         @window.update!(provider_pic: params[:provider_pic])
+      end
+
       if params[:videos]
         params[:videos].each { |video| @window.videos.create(video: video) }
       end
@@ -112,6 +116,6 @@ class Admin::WindowsController < ApplicationController
   end
 
   def window_params
-  	params.require(:window).permit(:name, :keyword)
+  	params.require(:window).permit(:name, :keyword, :provider_name, :provider_service, :provider_url, :provider_pic)
   end
 end
