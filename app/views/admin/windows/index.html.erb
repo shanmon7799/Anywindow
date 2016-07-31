@@ -5,6 +5,7 @@
 
 <h1>All Windows</h1>
 <%= link_to "New Windows", new_admin_window_path, class:"btn btn-primary"%>
+<%= link_to "New Cities", new_admin_city_path, class:"btn btn-info"%>
 <br>
 <br>
 
@@ -29,7 +30,7 @@
   	<% @windows.each do |window|%>
 	  	<tr>
 	  		<th><%= link_to window.name, admin_window_path(window) %></th>
-	  		<th><%= window.city.try(:name) %></th>
+	  		<th><%= link_to window.city.try(:name), edit_admin_city_path(window.city) %></th>
 	  		<th><%= window.city.try(:country).try(:name) %></th>
 	  		<th><%= window.page_views %></th>
 	  		<th><%= link_to "Edit", edit_admin_window_path(window), class:"btn btn-warning pull-right" %></th>

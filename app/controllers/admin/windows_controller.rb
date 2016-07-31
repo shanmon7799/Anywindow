@@ -19,12 +19,15 @@ class Admin::WindowsController < ApplicationController
 
 	def new
 		@window = Window.new
-		@city = City.new
-		@country = Country.new
-	end
+	  @city = City.new
+    @countries = Country.all
+  end
 
 	def create
-    create_new_window
+    @city = City.find_by_name(params[:city][:name])
+    @window = @city.windows.create!(window_params)
+    @window.latitude = params[:window][:locations].split(",").first
+    @window.longitude = params[:window][:locations].split(",").last
 
     if @window.save
       if params[:videos]
@@ -54,7 +57,6 @@ class Admin::WindowsController < ApplicationController
       @window.images.destroy_all  if params[:remove_images]
       @window.audios.destroy_all  if params[:remove_audios]
       @window.videos.destroy_all  if params[:remove_vedios]
-      @window.city.image.destroy if params[:remove_city_images]
 
       if params[:images]
         params[:images].each do |image|
@@ -111,39 +113,5 @@ class Admin::WindowsController < ApplicationController
 
   def window_params
   	params.require(:window).permit(:name, :keyword)
-  end
-
-  def city_params
-  	params.require(:city).permit(:name, :image)
-  end
-
-  def country_params
-  	params.require(:country).permit(:name, :en_name, :short_name)
-  end
-
-  def create_new_window
-    @country = Country.where(country_params).first
-    @city = City.where(city_params).first
-    if @city
-      @window = @city.windows.build(window_params)
-    elsif @country
-      @city = @country.cities.create!(city_params)
-      @window = @city.windows.build(window_params)
-    else
-      @country = Country.create!(country_params)
-      @city = @country.cities.create!(city_params)
-      @window = @city.windows.build(window_params)
-    end
-    #儲存city和window座標
-    @city.update!(latitude: params[:city][:location].split(",").first)
-    @city.update!(longitude: params[:city][:location].split(",").last)
-
-    @window.latitude = params[:window][:locations].split(",").first
-    @window.longitude = params[:window][:locations].split(",").last
-
-    if params[:city_images]
-      params[:city_images].each { |image| @city.update!(image: image) }
-    end
-
   end
 end

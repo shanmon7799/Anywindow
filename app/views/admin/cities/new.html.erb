@@ -1,0 +1,34 @@
+<h1>新增城市</h1>
+<hr>
+<%= form_for [:admin, @city],html: { multipart: true } do |city| %>
+
+  <div class="form-group">
+      <%= city.label :name, "City" %>
+      <%= city.text_field :name %>
+      <%#= city.select :name, City.all.map{ |c| [c.name, c.name] }, :class => "form-control" %>
+      <%= city.label :location, "location(十進制)" %>
+      <%= city.text_field :location %>
+	</div>
+
+	<div class="form-group">
+    Upload city_images
+    <%= file_field_tag "city_images", type: :file%>
+  </div>
+
+  <div class="form-group">
+    <%= fields_for @countries do |country| %>
+    <%= country.label :name, "Country" %>
+    <%= country.select :name, @countries.map{ |c| [c.name, c.name] },{},include_blank: true, :class => "form-control", style: "width: 20%" %>
+    <% end %>
+  </div>
+
+	<div class="form-actions btn-group">
+    <%= city.submit "Create", :class => "btn btn-primary" %>
+    <%= link_to "Cancel", admin_windows_path, :class => "btn btn-danger" %>
+  </div>
+
+<% end %>
+
+<script>
+  $('#city_name').select2();
+</script>

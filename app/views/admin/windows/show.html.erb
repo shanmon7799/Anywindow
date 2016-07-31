@@ -9,7 +9,9 @@
 
 <div>
 <h2>City Images</h2>
-  <%= image_tag (@window.city.image.url(:medium))%>
+  <% if @window.city.image.exists? %>
+    <%= image_tag (@window.city.image.url)%>
+  <% end %>
 </div>
 
 <div>

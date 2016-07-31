@@ -4,16 +4,6 @@
 
   <%= render :partial => 'form', :locals => { :w => w } %>
 
-	<div class="form-group">
-    <p> "Upload city_images" </p>
-    <%= file_field_tag "city_images[]", type: :file%>
-    <% if @window.city.image.exists? %>
-      <%= check_box_tag "remove_city_images", "1" %> Remove All Images
-        <%= image_tag (@window.city.image.url(:medium))%>
-    <% end %>
-  </div>
-
-
 	 <div class="form-actions btn-group">
     <%= w.submit "Update", :class => "btn btn-primary" %>
     <%= link_to "Cancel", admin_windows_path, :class => "btn btn-danger" %>

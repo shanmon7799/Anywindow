@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
     collection do
       get :search
+      get :random
+      get :map
       get :city_detail
       get :window_detail
-      get :map
     end
   end
   # Web API
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
        post :import
      end
     end
+    resources :cities
   end
 
   # root_path
