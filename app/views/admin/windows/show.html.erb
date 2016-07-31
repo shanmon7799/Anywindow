@@ -26,6 +26,13 @@
 </div>
 
 <div>
+<h2>City Image_square</h2>
+  <% if @window.city.image_square.exists? %>
+    <%= image_tag (@window.city.image_square.url)%>
+  <% end %>
+</div>
+
+<div>
 <h2>Audios</h2>
 <% @window.audios.each do |audio| %>
 	<p> 檔案名稱：<%= audio.audio_file_name %></p>

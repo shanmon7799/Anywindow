@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729184412) do
+ActiveRecord::Schema.define(version: 20160731105841) do
 
   create_table "audios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "audio_file_name"
@@ -26,17 +26,21 @@ ActiveRecord::Schema.define(version: 20160729184412) do
   create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "country_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "location"
     t.string   "latitude"
     t.string   "longitude"
     t.string   "en_name"
-    t.text     "description",        limit: 65535
+    t.text     "description",               limit: 65535
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image_square_file_name"
+    t.string   "image_square_content_type"
+    t.integer  "image_square_file_size"
+    t.datetime "image_square_updated_at"
     t.index ["country_id"], name: "index_cities_on_country_id", using: :btree
   end
 

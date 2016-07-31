@@ -22,6 +22,10 @@ class Admin::CitiesController < ApplicationController
       	@city.update!(image: params[:city_images])
     	end
 
+    	if params[:city_image_square]
+      	@city.update!(image_square: params[:city_image_square])
+    	end
+
 			redirect_to admin_windows_path, notice: "新增成功"
 	  else
 	   	render :new
@@ -39,13 +43,23 @@ class Admin::CitiesController < ApplicationController
 	      @city.save
 	    end
 
-	    if params[:city_images]
-	      params[:city_images].each do |image|
-	        unless @city.image.exists?
-	          @city.update!(image: image)
-	        end
-	      end
+	    if params[:remove_city_image_square] == "1"
+	      @city.image_square = nil
+	      @city.save
 	    end
+
+	    if params[:city_images]
+        unless @city.image.exists?
+          @city.update!(image: params[:city_images])
+        end
+	    end
+
+	    if params[:city_image_square]
+        unless @city.image_square.exists?
+          @city.update!(image_square: params[:city_image_square])
+        end
+	    end
+
 			redirect_to admin_windows_path, alert: "更新成功"
 		else
 		  render :edit
