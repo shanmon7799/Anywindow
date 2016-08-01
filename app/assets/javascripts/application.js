@@ -15,3 +15,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require select2
+//= require jquery.countdown.js
+//= require jquery.countdown.min.js

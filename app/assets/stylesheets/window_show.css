@@ -34,7 +34,7 @@
 
 .show-bottom-right {
   position: absolute;
-  bottom: 5vh;
+  bottom: 1vh;
   right: 24px;
 }
 
@@ -183,4 +183,12 @@
   font-family: SourceHanSansTWHK-Normal;
   font-size: 18px;
   letter-spacing: 0.5px;
+}
+
+#show-work-time-display {
+  font-family: SourceHanSansTWHK-Medium;
+  font-size: 36px;
+  color: white;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
