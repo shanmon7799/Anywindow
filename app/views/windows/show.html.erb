@@ -117,17 +117,7 @@
             <%= image_tag asset_path('Pause_White.svg') %>
           </div>
           <div class="show-working-item-word pull-right">
-            <p>暫停休息</p>
-          </div>
-        </div>
-      </div>
-      <div class="rest-again">
-        <div class="show-working-item pull-left">
-          <div class="show-working-item-img pull-left">
-            <%= image_tag asset_path('Play_White.svg') %>
-          </div>
-          <div class="show-working-item-word pull-right">
-            <p>繼續休息</p>
+            <p>結束休息</p>
           </div>
         </div>
       </div>
@@ -195,27 +185,28 @@
 <% end %>
 </div>
 <script>
-  //倒數總時間(分鐘)
+  //倒數總時間(秒)
   var work_countdown_time = 20
   var rest_countdown_time = 10
-  //收格言或介紹的時間（毫秒）
-  var intro_time = 5*1000
-  //剩餘時間(毫秒)
-  var work_remain_time = work_countdown_time*1000 - intro_time
-  var rest_remain_time = rest_countdown_time*1000 - intro_time
+  //收格言或介紹的時間（秒）
+  var intro_time = 5
+  //剩餘時間(秒)
+  var work_time = work_countdown_time - intro_time
+  var rest_time = rest_countdown_time - intro_time
   //設定倒數變色(分鐘=>00為1分鐘依此類推)
-  var change_color = "05"
+  var change_min = "00"
+  var change_sec = "05"
   //開始時間
   var work_start_time
   var rest_start_time
   //剩餘時間
-  var remain_min
-  var remain_sec
+  var work_remain_sec = work_countdown_time
+  var rest_remain_sec = rest_countdown_time
 
   $('.show-init-start').click(function(e){
     $('#audio')[0].play();
     work_start_time = new Date()
-    AnyWindowCountdown(work_start_time, work_countdown_time);
+    WorkCountdown(work_start_time, work_remain_sec);
     $('.show-init-words').hide();
     $('.navbar').hide();
     $('.show-working-again').hide();
@@ -223,7 +214,8 @@
     $('.show-start-work-time').show();
     $('.show-rest-work-time').hide();
     $('#show-work-time-display').css('color','white')
-    setTimeout("WindowStartSession()", intro_time);
+    $('#show-work-time-display').show();
+    setTimeout("WindowStartSession()", intro_time*1000);
   });
 
   function WindowStartSession() {
@@ -231,7 +223,6 @@
     $('.show-working').show();
     $('.working-pause').show();
     $('.audio-pause').show();
-    setTimeout("WindowRestInit()", work_remain_time);
   }
 
   function WindowRestInit() {
@@ -252,12 +243,13 @@
   $('.show-rest-init-start').click(function(e){
     $('#video')[0].play();
     rest_start_time = new Date()
-    AnyWindowCountdown(rest_start_time, rest_countdown_time);
+    WorkCountdown(rest_start_time, rest_remain_sec);
     $('.show-rest-init-words').hide();
     $('.show-rest-work-time').show();
     $('#show-work-time-display').css('color','white')
+    $('#show-work-time-display').show();
     $('.show-rest-starting').show();
-    setTimeout("WindowRestSession()",intro_time);
+    setTimeout("WindowRestSession()",intro_time*1000);
   });
 
   function WindowRestSession() {
@@ -265,11 +257,13 @@
     $('.show-location-words').show();
     $('.rest-pause').show();
     $('.audio-pause').show();
-    setTimeout("WindowRestEnd()",rest_remain_time);
+    setTimeout("WindowRestEnd()",rest_time*1000);
   }
 
   function WindowRestEnd() {
     $('.show-location-words').hide();
+    $('.show-rest-work-time').hide();
+    $('#show-work-time-display').hide();
     $('.rest-pause').hide();
     $('.rest-again').hide();
     $('.audio-pause').hide();
@@ -296,37 +290,44 @@
     $('.working-pause').hide();
     $('.working-again').show();
     $('#audio')[0].pause();
+    $('#show-work-time-display').countdown('pause');
   });
 
   $('.working-again').click(function(e){
     $('.working-again').hide();
     $('.working-pause').show();
     $('#audio')[0].play();
+    $('#show-work-time-display').countdown('resume');
+    var time = new Date();
+    work_remain_sec = work_remain_sec + 3;
+    WorkCountdown(time, work_remain_sec);
   });
 
   $('.rest-pause').click(function(e){
     $('.rest-pause').hide();
-    $('.rest-again').show();
-    $('#video')[0].pause();
+    WindowRestEnd();
   });
 
-  $('.rest-again').click(function(e){
-    $('.rest-again').hide();
-    $('.rest-pause').show();
-    $('#video')[0].play();
-  });
-
-  function AnyWindowCountdown(start_time, countdown_time) {
+  function WorkCountdown(start_time, countdown_time) {
     var time = start_time
     var interval = time.getSeconds()+countdown_time;
     time.setSeconds(interval);
 
     $('#show-work-time-display').countdown(time, function(event) {
       $(this).html(event.strftime('%M:%S'));
-      if(event.strftime('%S') == change_color)
+
+
+      if(event.strftime('%S') == change_sec && event.strftime('%M') == change_min)
       {
         $('#show-work-time-display').css('color','red')
       }
+
+      if(work_remain_sec == -1) {
+        WindowRestInit();
+      }
+
+      work_remain_sec = work_remain_sec - 1
+      console.log(work_remain_sec);
     });
   };
 
