@@ -84,9 +84,13 @@
       <div class="show-work-time-word">
         <p>距離工作結束還有</p>
       </div>
-      <div id="show-work-time-display">
+    </div>
+    <div class="show-rest-work-time">
+      <div class="show-work-time-word">
+        <p>距離休息結束還有</p>
       </div>
     </div>
+    <div id="show-work-time-display"></div>
   </div>
 
   <div class="show-bottom-center">
@@ -174,38 +178,50 @@
 </div>
 <!-- show image -->
 <div class="show-image">
+<%if @window.images.exists? %>
   <%= image_tag asset_path(@window.images.first.image.url) %>
+<% end %>
 </div>
 <!-- audio play -->
 <div class="show-music">
+<%if @window.audios.exists? %>
   <%= audio_tag asset_path(@window.audios.first.audio.url), id: "audio" %>
+<% end %>
 </div>
 <!-- video play -->
 <div class="show-video">
-  <%= video_tag asset_path(@window.videos.first.video.url) ,id: "video" , height: '100%', width: '100%' %>
+<%if @window.videos.exists? %>
+  <%= video_tag asset_path(@window.videos.first.video.url) ,id: "video", width: "108%", height: "108%" %>
+<% end %>
 </div>
 <script>
   //倒數總時間(分鐘)
-  var countdown_time = 2
+  var work_countdown_time = 20
+  var rest_countdown_time = 10
   //收格言或介紹的時間（毫秒）
   var intro_time = 5*1000
   //剩餘時間(毫秒)
-  var remain_time = countdown_time*60*1000 - intro_time
+  var work_remain_time = work_countdown_time*1000 - intro_time
+  var rest_remain_time = rest_countdown_time*1000 - intro_time
   //設定倒數變色(分鐘=>00為1分鐘依此類推)
-  var change_color = "00"
+  var change_color = "05"
   //開始時間
-  var start_time
+  var work_start_time
+  var rest_start_time
   //剩餘時間
   var remain_min
   var remain_sec
+
   $('.show-init-start').click(function(e){
     $('#audio')[0].play();
-    start_time = new Date()
-    AnyWindowCountdown(start_time);
+    work_start_time = new Date()
+    AnyWindowCountdown(work_start_time, work_countdown_time);
     $('.show-init-words').hide();
+    $('.navbar').hide();
     $('.show-working-again').hide();
     $('.show-work-starting').show();
     $('.show-start-work-time').show();
+    $('.show-rest-work-time').hide();
     $('#show-work-time-display').css('color','white')
     setTimeout("WindowStartSession()", intro_time);
   });
@@ -215,7 +231,7 @@
     $('.show-working').show();
     $('.working-pause').show();
     $('.audio-pause').show();
-    setTimeout("WindowRestInit()", remain_time);
+    setTimeout("WindowRestInit()", work_remain_time);
   }
 
   function WindowRestInit() {
@@ -227,6 +243,7 @@
     $('.audio-again').hide();
     $('.show-start-work-time').hide();
     $('.show-working').hide();
+    $('#show-work-time-display').hide();
     $('.show-video').show();
     $('.show-rest-init-words').show();
     notifyMe();
@@ -234,10 +251,10 @@
 
   $('.show-rest-init-start').click(function(e){
     $('#video')[0].play();
-    start_time = new Date()
-    AnyWindowCountdown();
+    rest_start_time = new Date()
+    AnyWindowCountdown(rest_start_time, rest_countdown_time);
     $('.show-rest-init-words').hide();
-    $('.show-start-work-time').show();
+    $('.show-rest-work-time').show();
     $('#show-work-time-display').css('color','white')
     $('.show-rest-starting').show();
     setTimeout("WindowRestSession()",intro_time);
@@ -248,7 +265,7 @@
     $('.show-location-words').show();
     $('.rest-pause').show();
     $('.audio-pause').show();
-    setTimeout("WindowRestEnd()",remain_time);
+    setTimeout("WindowRestEnd()",rest_remain_time);
   }
 
   function WindowRestEnd() {
@@ -299,13 +316,14 @@
     $('#video')[0].play();
   });
 
-  function AnyWindowCountdown() {
+  function AnyWindowCountdown(start_time, countdown_time) {
     var time = start_time
-    var interval = time.getMinutes()+countdown_time;
-    time.setMinutes(interval);
+    var interval = time.getSeconds()+countdown_time;
+    time.setSeconds(interval);
+
     $('#show-work-time-display').countdown(time, function(event) {
       $(this).html(event.strftime('%M:%S'));
-      if(event.strftime('%M') == change_color)
+      if(event.strftime('%S') == change_color)
       {
         $('#show-work-time-display').css('color','red')
       }

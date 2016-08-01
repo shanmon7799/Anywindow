@@ -58,10 +58,12 @@ class Admin::WindowsController < ApplicationController
 	def update
     if  @window.update(window_params)
 
+
       @window.images.destroy_all  if params[:remove_images]
       @window.audios.destroy_all  if params[:remove_audios]
       @window.videos.destroy_all  if params[:remove_videos]
 
+      @window.update!(provider_pic: params[:provider_pic])
       if params[:images]
         params[:images].each do |image|
           unless @window.images.exists?(image)

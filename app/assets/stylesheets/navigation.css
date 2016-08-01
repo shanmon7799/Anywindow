@@ -1,4 +1,5 @@
 .navbar {
+  position: fixed;
   background: #4565C3;
   margin: 0;
   width: 100%;
@@ -6,6 +7,7 @@
   color: white;
   border-color: #4565C3;
   border-radius: 0px;
+  z-index: 3;
 }
 
 .navbar .bars {

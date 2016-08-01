@@ -10,18 +10,19 @@
   position: absolute;
   width: 100%;
   height: 100vh;
-  top: 60px;
+  top: 0px;
   left: 0px;
   z-index: -1;
 }
 
 .show-video {
   position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0px;
+  width: 108%;
+  height: 108vh;
+  top: -60px;
   left: 0px;
   z-index: -1;
+  display: none;
 }
 
 /*Position Setting*/
@@ -64,6 +65,10 @@
 }
 
 .show-start-work-time {
+  display: none;
+}
+
+.show-rest-work-time {
   display: none;
 }
 

@@ -3,6 +3,7 @@
   height: 100%;
   position: absolute;
   background-color: #2546AA;
+  top:60px;
   z-index: 0;
   opacity: 1;
 }
@@ -11,6 +12,7 @@
   width: 340px;
   height: 100%;
   position: absolute;
+  top:60px;
   z-index: 2;
 }
 

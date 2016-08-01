@@ -7,7 +7,7 @@
 .container-window-detail {
   width: 1050px;
   margin: 0 auto;
-  padding-top: 48px;
+  padding-top: 108px;
 }
 
 .window-detail-country-city-name>p{
@@ -42,7 +42,7 @@
 
 .window-detail-intro-provider-img>img {
   width: 38px;
-  height: auto;
+  height: 38px;
   border-radius: 18px;
 }
 
@@ -132,8 +132,4 @@
 .search-result-intro-img img {
   width: 664px;
   height: 436px;
-}
-
-.search-result-intro-random {
-
 }

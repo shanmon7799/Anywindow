@@ -10,7 +10,9 @@
     </div>
     <div class="search-result-intro">
       <div class="search-result-intro-img col-md-8">
+      <% if @window.images.exists? %>
         <%= image_tag asset_path(@window.images.first.image.url) %>
+      <% end %>
         <div class="search-result-intro-random">
           <%= link_to image_tag(asset_path('Go_White.svg')), window_path(@window)%>
         </div>

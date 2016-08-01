@@ -16,7 +16,7 @@
       <% @cities.each do |city| %>
       <div class="search-window col-md-4">
         <div class="search-window-img">
-          <%= link_to image_tag(asset_path(city.image.url)), city_detail_windows_path(id: city) %>
+          <%= link_to image_tag(asset_path(city.image_square.url)), city_detail_windows_path(id: city) %>
         </div>
         <div class="search-window-words">
           <div class="search-window-city">

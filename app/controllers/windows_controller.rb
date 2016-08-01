@@ -10,7 +10,7 @@ class WindowsController < ApplicationController
       city = City.find(params[:city_id])
       @window = city.windows.sample(1)
     else
-      @window = Window.order("RAND()").first
+      @window = Window.all.sample(1).first
     end
     redirect_to window_path(@window)
   end

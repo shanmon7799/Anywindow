@@ -34,7 +34,9 @@
         <% @city.windows.each do |window| %>
           <div class="search-result-window col-md-4 ">
             <div class="search-result-window-img">
+            <% if window.images.exists? %>
               <%= link_to image_tag(asset_path(window.images.first.image.url)), window_detail_windows_path(id: window) %>
+            <% end %>
             </div>
             <div class="search-result-window-intro clearfix">
               <div class="search-result-window-name pull-left">
