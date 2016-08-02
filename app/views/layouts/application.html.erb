@@ -21,7 +21,7 @@
           <% end %>
         </div>
         <div id="logo" class="col-md-4">
-          <%= image_tag asset_path("Combined_Shape.png") %>
+          <%= link_to image_tag(asset_path("Combined_Shape.png")), root_path%>
         </div>
         <div class="avatar-img col-md-4">
           <%= image_tag current_user.show_avatar%>
@@ -60,7 +60,7 @@
               <span class="sidebar-icon pull-left">
                 <%= image_tag asset_path("Data_White.svg") %>
               </span>
-              <%= link_to content_tag(:p,"工作數據") %>
+              <%= link_to content_tag(:p,"工作數據"), work_data_windows_path %>
             </a>
           </div>
           <div class="sidebar-item">

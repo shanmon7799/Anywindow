@@ -15,11 +15,22 @@
   z-index: -1;
 }
 
+.video-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.3;
+  z-index: -1;
+}
+
 .show-video {
   position: absolute;
-  width: 108%;
-  height: 108vh;
-  top: -80px;
+  width: 100%;
+  height: 100%;
+  top: 0px;
   left: 0px;
   z-index: -1;
   display: none;
@@ -48,7 +59,8 @@
 .show-bottom-center {
   position: absolute;
   bottom: 5vh;
-  left: 43%;
+  left: 42%;
+  text-align: center;
 }
 
 /*Status Seting*/
@@ -172,6 +184,7 @@
 
 .show-init-link a {
   color: white;
+  padding-left: 14px;
 }
 
 .show-quote-content {

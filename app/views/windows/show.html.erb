@@ -151,7 +151,7 @@
 
     <div class="show-rest-init-words">
       <div class="show-init-link">
-        <p>不休息了，我要直接下班了！<%=link_to "結束今天的工作", root_path %></p>
+        <p>不休息了，我要直接下班了！<%=link_to "結束今天的工作", work_data_windows_path %></p>
       </div>
     </div>
 
@@ -181,9 +181,10 @@
 <!-- video play -->
 <div class="show-video">
 <%if @window.videos.exists? %>
-  <%= video_tag asset_path(@window.videos.first.video.url) ,id: "video", width: "108%", height: "108%" %>
+  <%= video_tag asset_path(@window.videos.first.video.url) ,id: "video", width: "100%", height: "100%", autobuffer: true %>
 <% end %>
 </div>
+<div class="video-mask"></div>
 <script>
   //倒數總時間(秒)
   var work_countdown_time = 20
@@ -201,12 +202,11 @@
   var rest_start_time
   //剩餘時間
   var work_remain_sec = work_countdown_time
-  var rest_remain_sec = rest_countdown_time
 
   $('.show-init-start').click(function(e){
     $('#audio')[0].play();
     work_start_time = new Date()
-    WorkCountdown(work_start_time, work_remain_sec);
+    WorkCountdown(work_start_time, work_countdown_time);
     $('.show-init-words').hide();
     $('.navbar').hide();
     $('.show-working-again').hide();
@@ -243,7 +243,7 @@
   $('.show-rest-init-start').click(function(e){
     $('#video')[0].play();
     rest_start_time = new Date()
-    WorkCountdown(rest_start_time, rest_remain_sec);
+    WorkCountdown(rest_start_time, rest_countdown_time);
     $('.show-rest-init-words').hide();
     $('.show-rest-work-time').show();
     $('#show-work-time-display').css('color','white')
@@ -327,7 +327,6 @@
       }
 
       work_remain_sec = work_remain_sec - 1
-      console.log(work_remain_sec);
     });
   };
 
@@ -336,12 +335,12 @@
       alert("This browser does not support desktop notification");
     }
     else if (Notification.permission === "granted") {
-      var notification = new Notification("該休息嚕~~~");
+      var notification = new Notification("工作時間到了，跟著任意窗一起去休息吧");
     }
     else if (Notification.permission !== 'denied') {
       Notification.requestPermission(function (permission) {
         if (permission === "granted") {
-          var notification = new Notification("該休息嚕~~~");
+          var notification = new Notification("工作時間到了，跟著任意窗一起去休息吧");
         }
       });
     }

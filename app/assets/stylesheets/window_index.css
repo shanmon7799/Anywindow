@@ -1,9 +1,23 @@
+.container-index {
+  width: 100%;
+  height: 100vh;
+}
+
 .index-info {
   position: absolute;
   color: #F7EFEF;
   top: 40%;
   left: 40%;
   text-align: center;
+}
+
+.show-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -60px;
+  left: 0px;
+  z-index: -1;
 }
 
 .index-words h2 {

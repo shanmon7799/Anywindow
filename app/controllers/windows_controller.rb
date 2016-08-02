@@ -2,7 +2,7 @@ class WindowsController < ApplicationController
 
   before_action :authenticate_user!
   def index
-
+    @window = Window.where(name: "JR西日本宮島渡輪" ).first
   end
 
   def random
@@ -25,7 +25,7 @@ class WindowsController < ApplicationController
     if params[:keyword] && params[:keyword] != ""
       @cities = City.where(name: params[:keyword])
     else
-      @cities = City.all
+      @cities = City.all.order("id DESC")
     end
   end
 

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get :map
       get :city_detail
       get :window_detail
+      get :work_data
     end
   end
   # Web API

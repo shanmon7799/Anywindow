@@ -1,19 +1,19 @@
 .siderbar-background {
   width: 340px;
-  height: 100%;
-  position: absolute;
+  height: 95%;
+  position: fixed;
   background-color: #2546AA;
   top:60px;
-  z-index: 0;
+  z-index: 2;
   opacity: 1;
 }
 
 .sidebar {
   width: 340px;
-  height: 100%;
-  position: absolute;
+  height: 95%;
+  position: fixed;
   top:60px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .sidebar-items {
@@ -53,7 +53,7 @@
 .sidebar-info {
   position: absolute;
   width: 320px;
-  bottom: 8%;
+  bottom: 20px;
 }
 
 .sidebar-info>.user-info {
