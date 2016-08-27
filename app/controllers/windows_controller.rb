@@ -2,7 +2,7 @@ class WindowsController < ApplicationController
 
   before_action :authenticate_user!
   def index
-    @window = Window.where(name: "JR西日本宮島渡輪" ).first
+    @window = Window.all.sample(1)
   end
 
   def random
@@ -10,7 +10,7 @@ class WindowsController < ApplicationController
       city = City.find(params[:city_id])
       @window = city.windows.sample(1)
     else
-      @window = Window.all.sample(1).first
+      @window = Window.all.sample(1)
     end
     redirect_to window_path(@window)
   end
