@@ -1,14 +1,14 @@
 # config valid only for current version of Capistrano
-lock '3.5.0'
-
-set :application, 'AnyWindowWeb'
-set :repo_url, 'git@github.com:ritayutingwang/AnyWindowWeb.git'
+lock '3.6.0'
+`ssh-add`
+set :application, 'anywindow'
+set :repo_url, 'git@github.com:shanmon7799/Anywindow.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deploy/AnyWindowWeb'
+set :deploy_to, '/home/deploy/Anywindow'
 set :keep_releases, 5
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/facebook.yml', 'config/s3.yml')  # 如果有 facebook.yml 或 email.yml 想要連結的話，也要加進來
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
