@@ -2,15 +2,15 @@ class WindowsController < ApplicationController
 
   before_action :authenticate_user!
   def index
-    @window = Window.all.sample(1)
+    @window = Window.all.sample(1).first
   end
 
   def random
     if params[:city_id]
       city = City.find(params[:city_id])
-      @window = city.windows.sample(1)
+      @window = city.windows.sample(1).first
     else
-      @window = Window.all.sample(1)
+      @window = Window.all.sample(1).first
     end
     redirect_to window_path(@window)
   end
